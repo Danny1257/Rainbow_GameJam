@@ -5,11 +5,12 @@ public class Player_Movement : MonoBehaviour
 {
 	// Public Members
 	public float PlayerSpeed, JumpPower;
+	public bool FacingRight;
 
 
 	// Private Memebers
 	private Vector3 PlayerVelocity;
-	private bool Grounded, FacingRight, MovingLeft, MovingRight;
+	private bool Grounded, MovingLeft, MovingRight;
 
 	// Use this for initialization
 	void Start () 
@@ -26,6 +27,16 @@ public class Player_Movement : MonoBehaviour
 	{
 		CheckForInput();			// Check for player input
 		UpdatePosition();			// Update the players position
+
+		if (MovingRight)
+			FacingRight = true;
+		else if (MovingLeft)
+			FacingRight = false;
+
+		if (FacingRight)
+			Debug.Log("Facing RIGHT");
+		else
+			Debug.Log("Facing LEFT");
 	}
 
 	void CheckForInput()
@@ -35,7 +46,8 @@ public class Player_Movement : MonoBehaviour
 			FacingRight = false;
 			MovingLeft = true;
 		}
-		else if (Input.GetKey(KeyCode.D))			// Player moving right
+
+		if (Input.GetKey(KeyCode.D))			// Player moving right
 		{
 			FacingRight = true;
 			MovingRight = true;

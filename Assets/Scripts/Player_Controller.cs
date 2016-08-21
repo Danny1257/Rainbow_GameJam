@@ -5,18 +5,23 @@ using System.Collections.Generic;
 public class Player_Controller : MonoBehaviour 
 {
 	// Public members
+
 	public Material Blue, Red, Yellow;
 
 	// Private Members
 	private enum CharacterStatus{ Default, Wizard, Astronaut, Pirate };
-	CharacterStatus CurrentStatus;
-
+	private CharacterStatus CurrentStatus;
 	private List<CharacterStatus> PersonalitiesList = new List<CharacterStatus>();
 
+	private Wizard_Teleport wizard_teleport;
+	private TrailRenderer wizard_trail;
 	private int PersonalitiesCollected;
+
 	// Use this for initialization
 	void Start ()
 	{
+		wizard_teleport = transform.GetComponentInChildren<Wizard_Teleport>();
+		wizard_trail = transform.GetComponentInChildren<TrailRenderer>();
 		CurrentStatus = CharacterStatus.Default;
 		PersonalitiesCollected = 0;
 	}
@@ -52,6 +57,13 @@ public class Player_Controller : MonoBehaviour
 		{
 			CheckForPersonalityChange();
 		}
+
+		if (Input.GetMouseButtonDown(0))
+		{
+			wizard_teleport.Teleport();
+		}
+
+
 	}
 
 	private void AstronautUpdate()
