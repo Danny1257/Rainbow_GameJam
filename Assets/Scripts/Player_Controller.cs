@@ -15,12 +15,15 @@ public class Player_Controller : MonoBehaviour
 
 	private Wizard_Teleport wizard_teleport;
 	private TrailRenderer wizard_trail;
+
+	private Astronaut_Fly astronaut_Fly;
 	private int PersonalitiesCollected;
 
 	// Use this for initialization
 	void Start ()
 	{
 		wizard_teleport = transform.GetComponentInChildren<Wizard_Teleport>();
+		astronaut_Fly = transform.GetComponentInChildren<Astronaut_Fly>();
 		wizard_trail = transform.GetComponentInChildren<TrailRenderer>();
 		CurrentStatus = CharacterStatus.Default;
 		PersonalitiesCollected = 0;
@@ -71,6 +74,16 @@ public class Player_Controller : MonoBehaviour
 		if (PersonalitiesList.Count > 1)
 		{
 			CheckForPersonalityChange();
+		}
+
+		if (Input.GetMouseButton(0))
+		{
+			astronaut_Fly.Fly();
+		}
+
+		if (Input.GetMouseButtonUp(0))
+		{
+			astronaut_Fly.StartTimer();
 		}
 	}
 

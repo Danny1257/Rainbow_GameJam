@@ -9,10 +9,7 @@ public class Pickup : MonoBehaviour
 	private float speed, maxY, minY;
 	private Vector3 velocity;
 
-	// Rotation variables
-	private Quaternion rotation;
-	private Vector3 radius, CenterPoint;
-	private float currentRotation;
+
 
 	// Use this for initialization
 	void Start () 
@@ -21,10 +18,6 @@ public class Pickup : MonoBehaviour
 		minY = transform.position.y - 0.5f;
 		maxY = transform.position.y + 0.5f;
 		velocity = new Vector3(0, speed, 0);
-
-		CenterPoint = new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z);
-		currentRotation = 0.0f;
-		radius = new Vector3(5, 0, 0);
 	}
 	
 	// Update is called once per frame
