@@ -32,11 +32,6 @@ public class Player_Movement : MonoBehaviour
 			FacingRight = true;
 		else if (MovingLeft)
 			FacingRight = false;
-
-		if (FacingRight)
-			Debug.Log("Facing RIGHT");
-		else
-			Debug.Log("Facing LEFT");
 	}
 
 	void CheckForInput()
