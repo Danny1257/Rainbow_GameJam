@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Pickup : MonoBehaviour 
 {
+	public int PickUpNumber;
+
 	private Player_Controller player_controller;
 	private float speed, maxY, minY;
 	private Vector3 velocity;
@@ -54,7 +56,7 @@ public class Pickup : MonoBehaviour
 		if (collision.transform.tag == "Player")
 		{
 			player_controller = collision.transform.GetComponentInChildren<Player_Controller>();
-			player_controller.Pickup();
+			player_controller.Pickup(PickUpNumber);
 
 			Destroy(this.gameObject);
 		}

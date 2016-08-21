@@ -1,18 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Player_Controller : MonoBehaviour 
 {
 	// Public members
-	public Material Blue, Red;
+	public Material Blue, Red, Yellow;
 
 	// Private Members
 	private enum CharacterStatus{ Default, Wizard, Astronaut, Pirate };
 	CharacterStatus CurrentStatus;
+
+	private List<CharacterStatus> PersonalitiesList = new List<CharacterStatus>();
+
+	private int PersonalitiesCollected;
 	// Use this for initialization
 	void Start ()
 	{
 		CurrentStatus = CharacterStatus.Default;
+		PersonalitiesCollected = 0;
 	}
 	
 	// Update is called once per frame
@@ -37,28 +43,126 @@ public class Player_Controller : MonoBehaviour
 
 	private void DefaultUpdate()
 	{
-
+			
 	}
 
 	private void WizardUpdate()
 	{
-
+		if (PersonalitiesList.Count > 1)
+		{
+			CheckForPersonalityChange();
+		}
 	}
 
 	private void AstronautUpdate()
 	{
-
+		if (PersonalitiesList.Count > 1)
+		{
+			CheckForPersonalityChange();
+		}
 	}
 
 	private void PirateUpdate()
 	{
-
+		if (PersonalitiesList.Count > 1)
+		{
+			CheckForPersonalityChange();
+		}
 	}
 
-	public void Pickup()
+	private void CheckForPersonalityChange()
 	{
-		CurrentStatus = CharacterStatus.Wizard;
+		if (Input.GetAxis("Mouse ScrollWheel") > 0)
+		{
+			if (CurrentStatus == CharacterStatus.Wizard)
+			{
+				if (PersonalitiesList.Contains(CharacterStatus.Astronaut))
+				    CurrentStatus = CharacterStatus.Astronaut;
+				else
+					CurrentStatus = CharacterStatus.Pirate;
+			}				
+			else if (CurrentStatus == CharacterStatus.Astronaut)
+			{
+				if (PersonalitiesList.Contains(CharacterStatus.Pirate))
+					CurrentStatus = CharacterStatus.Pirate;
+				else 
+					CurrentStatus = CharacterStatus.Wizard;
+			}				
+			else if (CurrentStatus == CharacterStatus.Pirate)
+			{
+				if (PersonalitiesList.Contains(CharacterStatus.Wizard))
+					CurrentStatus = CharacterStatus.Wizard;
+				else
+					CurrentStatus = CharacterStatus.Astronaut;
+			}
+				
+		}
+		else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+		{
+			if (CurrentStatus == CharacterStatus.Wizard)
+			{
+				if (PersonalitiesList.Contains(CharacterStatus.Pirate))
+					CurrentStatus = CharacterStatus.Pirate;
+				else
+					CurrentStatus = CharacterStatus.Astronaut;
+			}				
+			else if (CurrentStatus == CharacterStatus.Astronaut)
+			{
+				if (PersonalitiesList.Contains(CharacterStatus.Wizard))
+					CurrentStatus = CharacterStatus.Wizard;
+				else
+					CurrentStatus = CharacterStatus.Pirate;
+			}				
+			else if (CurrentStatus == CharacterStatus.Pirate)
+			{
+				if (PersonalitiesList.Contains(CharacterStatus.Astronaut))
+					CurrentStatus = CharacterStatus.Astronaut;
+				else 
+					CurrentStatus = CharacterStatus.Wizard;
+			}				
+		}
 
-		//
+		// Change the player model/material
+		if (CurrentStatus == CharacterStatus.Wizard)
+		{
+			transform.GetComponent<Renderer>().material = Blue;
+		}
+		else if (CurrentStatus == CharacterStatus.Astronaut)
+		{
+			transform.GetComponent<Renderer>().material = Red;
+		}
+		else if (CurrentStatus == CharacterStatus.Pirate)
+		{
+			transform.GetComponent<Renderer>().material = Yellow;
+		}
+	}
+
+	public void Pickup(int pickUpNumber)
+	{
+		if (pickUpNumber == 1)
+		{
+			PersonalitiesList.Add(CharacterStatus.Wizard);
+			CurrentStatus = CharacterStatus.Wizard;
+
+			// Change the players colour / model to wizard character
+			transform.GetComponent<Renderer>().material = Blue;
+		}
+		else if (pickUpNumber == 2)
+		{
+			PersonalitiesList.Add(CharacterStatus.Astronaut);
+			CurrentStatus = CharacterStatus.Astronaut;
+			
+			// Change the players colour / model to wizard character
+			transform.GetComponent<Renderer>().material = Red;
+		}
+
+		else if (pickUpNumber == 3)
+		{
+			PersonalitiesList.Add(CharacterStatus.Pirate);
+			CurrentStatus = CharacterStatus.Pirate;
+			
+			// Change the players colour / model to wizard character
+			transform.GetComponent<Renderer>().material = Yellow;
+		}
 	}
 }
