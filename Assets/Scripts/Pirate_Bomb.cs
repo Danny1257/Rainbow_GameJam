@@ -17,6 +17,12 @@ public class Pirate_Bomb : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+		/* HOW TO FIX
+		 * Find both vectors for current rotation of aim object, and rotation vector of center of player to mouse position.
+		 * Find angle between both vectors, then rotate around the player position by that angle.
+		 */
+
+
 
 		mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z - Camera.main.transform.position.z));
 		//screenPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, transform.position.z - Camera.main.transform.position.z));
