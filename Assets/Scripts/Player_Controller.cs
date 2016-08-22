@@ -19,7 +19,7 @@ public class Player_Controller : MonoBehaviour
 	private Astronaut_Fly astronaut_Fly;
 	private Pirate_Bomb pirate_bomb;
 
-	private int PersonalitiesCollected;
+	private int PersonalitiesCollected, NumOfPickups;
 
 	// Use this for initialization
 	void Start ()
@@ -30,6 +30,7 @@ public class Player_Controller : MonoBehaviour
 		wizard_trail = transform.GetComponentInChildren<TrailRenderer>();
 		CurrentStatus = CharacterStatus.Default;
 		PersonalitiesCollected = 0;
+		NumOfPickups = 0;
 	}
 	
 	// Update is called once per frame
@@ -176,6 +177,7 @@ public class Player_Controller : MonoBehaviour
 
 	public void Pickup(int pickUpNumber)
 	{
+		/*
 		if (pickUpNumber == 1)
 		{
 			PersonalitiesList.Add(CharacterStatus.Wizard);
@@ -200,6 +202,36 @@ public class Player_Controller : MonoBehaviour
 			
 			// Change the players colour / model to wizard character
 			transform.GetComponent<Renderer>().material = Yellow;
+		}*/
+
+		NumOfPickups++;
+
+		if (NumOfPickups == 3)
+		{
+			PersonalitiesList.Add(CharacterStatus.Wizard);
+			CurrentStatus = CharacterStatus.Wizard;
+
+			// Change the player colour / model
+			transform.GetComponentInChildren<Renderer>().material = Blue;
 		}
+		else if (NumOfPickups == 6)
+		{
+			PersonalitiesList.Add(CharacterStatus.Pirate);
+			CurrentStatus = CharacterStatus.Pirate;
+
+			// change player colour / model
+			transform.GetComponentInChildren<Renderer>().material = Yellow;
+		}
+		else if (NumOfPickups == 9)
+		{
+			PersonalitiesList.Add(CharacterStatus.Astronaut);
+			CurrentStatus = CharacterStatus.Astronaut;
+
+			// Change player colour / model
+			transform.GetComponentInChildren<Renderer>().material = Red;
+		}
+
+
+
 	}
 }
