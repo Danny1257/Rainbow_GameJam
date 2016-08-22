@@ -28,17 +28,38 @@ public class Pirate_Bomb : MonoBehaviour
 		{
 			if (force < MaxForce)
 			{
-				force += Time.deltaTime;
+				force += Time.deltaTime * 100;
 			}
 
 
 			if (BombReleased)
 			{
+				RaycastHit hit;
+				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+				
+				Plane zPlane = new Plane(Vector3.forward, Vector3.zero);
+				
+				float distance = 0;
+				
+				if (zPlane.Raycast(ray, out distance))
+				{
+					screenPos = ray.GetPoint(distance);
+				}
+
 				Rigidbody bomb_body = currentBomb.transform.GetComponentInChildren<Rigidbody>();
-				Vector3 force_Vec = new Vector3(30, 2, 0);
+
+
+				/// Calculate the force vector
+				Vector3 difference = screenPos - transform.position;
+
+				Vector3 force_Vec = difference * force;
 
 				float radius = currentBomb.GetComponentInChildren<SphereCollider>().radius;
-				//bomb_body.AddForceAtPosition
+				Vector3 ForcePos = new Vector3(currentBomb.transform.position.x - radius, currentBomb.transform.position.y, currentBomb.transform.position.z);
+
+				bomb_body.AddForceAtPosition(force_Vec, ForcePos);
+				bomb_body.useGravity = true;
+
 				BombSpawned = false;
 				BombReleased = false;
 			}
@@ -109,10 +130,13 @@ public class Pirate_Bomb : MonoBehaviour
 
 	public void StartThrow()
 	{
+		force = 0;
 		currentBomb = Instantiate(Bomb);
+		BombSpawned = true;
 		BoxCollider playerBox = transform.GetComponentInChildren<BoxCollider>();
 
-		currentBomb.transform.position = new Vector3(transform.position.x + (playerBox.size.x), transform.position.y, transform.position.z);
+		currentBomb.transform.position = new Vector3(transform.position.x + (playerBox.size.x/2) + 0.1f, transform.position.y, transform.position.z);
+		currentBomb.transform.GetComponentInChildren<Rigidbody>().useGravity = false;
 	}
 
 	public void EndThrow()
