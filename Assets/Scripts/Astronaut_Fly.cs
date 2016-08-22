@@ -39,9 +39,7 @@ public class Astronaut_Fly : MonoBehaviour
 				FlyReady = true;
 				RechargeTimer = 1.0f;
 			}
-		}
-
-		Debug.Log("Fuel Left = " + FuelLeft);
+		}	
 	}
 
 	public void Fly()
