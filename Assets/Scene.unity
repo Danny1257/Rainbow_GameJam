@@ -126,7 +126,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11444786, guid: a5e509e013ceaf34386f82b60e7d03e8, type: 2}
       propertyPath: PickUpNumber
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a5e509e013ceaf34386f82b60e7d03e8, type: 2}
@@ -855,7 +855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AimObject: {fileID: 0}
   Bomb: {fileID: 171914, guid: cb773b9622752164984a8275e676bee3, type: 2}
-  MaxForce: 0
+  MaxForce: 300
 --- !u!1 &1394112571
 GameObject:
   m_ObjectHideFlags: 0
