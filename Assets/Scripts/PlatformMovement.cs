@@ -29,5 +29,17 @@ public class PlatformMovement : MonoBehaviour {
 			}
 		}
 
+		if (other.tag == "Player") {
+			other.transform.parent = transform;
+		}
+
+	}
+
+	void OnTriggerExit(Collider other){
+
+		if(other.tag == "Player"){
+			other.transform.parent = null;
+		}
 	}
 }
+
