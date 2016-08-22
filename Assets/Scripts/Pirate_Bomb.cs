@@ -36,7 +36,9 @@ public class Pirate_Bomb : MonoBehaviour
 			{
 				Rigidbody bomb_body = currentBomb.transform.GetComponentInChildren<Rigidbody>();
 				Vector3 force_Vec = new Vector3(30, 2, 0);
-				bomb_body.AddForce(force_Vec);
+
+				float radius = currentBomb.GetComponentInChildren<SphereCollider>().radius;
+				//bomb_body.AddForceAtPosition
 				BombSpawned = false;
 				BombReleased = false;
 			}
