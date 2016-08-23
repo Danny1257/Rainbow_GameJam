@@ -213,19 +213,19 @@ public class Player_Controller : MonoBehaviour
 
 		if (NumOfPickups == 3)
 		{
-			PersonalitiesList.Add(CharacterStatus.Pirate);
-			CurrentStatus = CharacterStatus.Pirate;
-
-			// Change the player colour / model
-			transform.GetComponentInChildren<Renderer>().material = Yellow;
-		}
-		else if (NumOfPickups == 6)
-		{
 			PersonalitiesList.Add(CharacterStatus.Wizard);
 			CurrentStatus = CharacterStatus.Wizard;
 
-			// change player colour / model
+			// Change the player colour / model
 			transform.GetComponentInChildren<Renderer>().material = Blue;
+		}
+		else if (NumOfPickups == 6)
+		{
+			PersonalitiesList.Add(CharacterStatus.Pirate);
+			CurrentStatus = CharacterStatus.Pirate;
+
+			// change player colour / model
+			transform.GetComponentInChildren<Renderer>().material = Yellow;
 		}
 		else if (NumOfPickups == 9)
 		{
@@ -235,8 +235,5 @@ public class Player_Controller : MonoBehaviour
 			// Change player colour / model
 			transform.GetComponentInChildren<Renderer>().material = Red;
 		}
-
-
-
 	}
 }
