@@ -29,6 +29,8 @@ public class Pirate_Bomb : MonoBehaviour
 	{
 		if (BombSpawned)
 		{
+			BoxCollider playerBox = transform.GetComponentInChildren<BoxCollider>();
+			currentBomb.transform.position = new Vector3(transform.position.x + (playerBox.size.x/2) + 0.1f, transform.position.y, transform.position.z);
 			if (force < MaxForce)
 			{
 				force += Time.deltaTime * 100;
@@ -65,6 +67,7 @@ public class Pirate_Bomb : MonoBehaviour
 				
 				BombSpawned = false;
 				BombReleased = false;
+				StartTimer = true;
 			}
 		}
 
@@ -148,6 +151,11 @@ public class Pirate_Bomb : MonoBehaviour
 		return BombReady;
 	}
 
+	public bool GetBombSpawned()
+	{
+		return BombSpawned;
+	}
+
 	public void SetBombReady(bool state)
 	{
 		BombReady = state;
@@ -158,6 +166,7 @@ public class Pirate_Bomb : MonoBehaviour
 		force = 0;
 		currentBomb = Instantiate(Bomb);
 		BombSpawned = true;
+
 		BoxCollider playerBox = transform.GetComponentInChildren<BoxCollider>();
 		
 		currentBomb.transform.position = new Vector3(transform.position.x + (playerBox.size.x/2) + 0.1f, transform.position.y, transform.position.z);
@@ -167,7 +176,6 @@ public class Pirate_Bomb : MonoBehaviour
 	public void EndThrow()
 	{
 		BombReleased = true;
-		BombReady = false;
-		
+		BombReady = false;		
 	}
 }
