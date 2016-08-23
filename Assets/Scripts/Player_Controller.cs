@@ -100,11 +100,13 @@ public class Player_Controller : MonoBehaviour
 
 		if (Input.GetMouseButtonDown(0))
 		{
-			pirate_bomb.StartThrow();
+			if (pirate_bomb.GetBombReady())
+				pirate_bomb.StartThrow();
 		}
 		else if (Input.GetMouseButtonUp(0))
 		{
-			pirate_bomb.EndThrow();
+			if (pirate_bomb.GetBombReady())
+				pirate_bomb.EndThrow();
 		}
 	}
 

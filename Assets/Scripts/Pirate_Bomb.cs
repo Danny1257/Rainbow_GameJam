@@ -8,8 +8,8 @@ public class Pirate_Bomb : MonoBehaviour
 	private Rigidbody body;
 	private Vector3 mousePos, screenPos;
 	private GameObject currentBomb;
-	private bool BombSpawned, BombReleased;
-	private float force;
+	private bool BombSpawned, BombReleased, BombReady, StartTimer;
+	private float force, DestroyTimer;
 	
 	// Use this for initialization
 	void Start () 
@@ -17,7 +17,10 @@ public class Pirate_Bomb : MonoBehaviour
 		//body = AimObject.transform.GetComponentInChildren<Rigidbody>();
 		BombSpawned = false;
 		BombReleased = false;
+		BombReady = true;
+		StartTimer = false;
 		force = 0.0f;
+		DestroyTimer = 2.0f;
 		
 	}
 	
@@ -62,6 +65,18 @@ public class Pirate_Bomb : MonoBehaviour
 				
 				BombSpawned = false;
 				BombReleased = false;
+			}
+		}
+
+		if (StartTimer)
+		{
+			DestroyTimer -= Time.deltaTime;
+			if (DestroyTimer <= 0)
+			{
+				Destroy(currentBomb);
+				BombReady = true;
+				StartTimer = false;
+				DestroyTimer = 2.0f;
 			}
 		}
 		
@@ -127,7 +142,17 @@ public class Pirate_Bomb : MonoBehaviour
 		
 		//AimObject.transform.rotation.eulerAngles = new Vector3(0, 0, Mathf.Atan2((screenPos.y - transform.position.y), (screenPos.x - transform.position.x)) * Mathf.Rad2Deg);
 	}
-	
+
+	public bool GetBombReady()
+	{
+		return BombReady;
+	}
+
+	public void SetBombReady(bool state)
+	{
+		BombReady = state;
+	}
+
 	public void StartThrow()
 	{
 		force = 0;
@@ -142,6 +167,7 @@ public class Pirate_Bomb : MonoBehaviour
 	public void EndThrow()
 	{
 		BombReleased = true;
+		BombReady = false;
 		
 	}
 }
