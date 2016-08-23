@@ -124,6 +124,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11478718, guid: 9ac74b1d0212e1249a52fcc3a5f6aa0e, type: 2}
+      propertyPath: platform_number
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11478718, guid: 9ac74b1d0212e1249a52fcc3a5f6aa0e, type: 2}
+      propertyPath: parentPlatformScript
+      value: 
+      objectReference: {fileID: 1965362946}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ac74b1d0212e1249a52fcc3a5f6aa0e, type: 2}
   m_IsPrefabParent: 0
@@ -492,8 +500,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 162338, guid: 9ac74b1d0212e1249a52fcc3a5f6aa0e, type: 2}
       propertyPath: m_Name
-      value: DisappearPlatform (1)
+      value: DisappearPlatform_2
       objectReference: {fileID: 0}
+    - target: {fileID: 11478718, guid: 9ac74b1d0212e1249a52fcc3a5f6aa0e, type: 2}
+      propertyPath: platform_number
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11478718, guid: 9ac74b1d0212e1249a52fcc3a5f6aa0e, type: 2}
+      propertyPath: parentPlatformScript
+      value: 
+      objectReference: {fileID: 1965362946}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ac74b1d0212e1249a52fcc3a5f6aa0e, type: 2}
   m_IsPrefabParent: 0
