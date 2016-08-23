@@ -23,8 +23,6 @@ public class Pickup : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		//transform.RotateAround(CenterPoint, new Vector3(0, 1, 0), 1.0f);
-
 		transform.position += velocity;
 
 		// create floating motion

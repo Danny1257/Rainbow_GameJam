@@ -100,11 +100,16 @@ public class Player_Controller : MonoBehaviour
 
 		if (Input.GetMouseButtonDown(0))
 		{
-			pirate_bomb.StartThrow();
+			if (pirate_bomb.GetBombReady())
+				pirate_bomb.StartThrow();
 		}
 		else if (Input.GetMouseButtonUp(0))
 		{
-			pirate_bomb.EndThrow();
+			if (pirate_bomb.GetBombReady())
+			{
+				if (pirate_bomb.GetBombSpawned())
+					pirate_bomb.EndThrow();
+			}
 		}
 	}
 
@@ -212,7 +217,7 @@ public class Player_Controller : MonoBehaviour
 			CurrentStatus = CharacterStatus.Wizard;
 
 			// Change the player colour / model
-			transform.GetComponentInChildren<Renderer>().material = Blue;
+			//transform.GetComponentInChildren<Renderer>().material = Blue;
 		}
 		else if (NumOfPickups == 6)
 		{
@@ -230,8 +235,5 @@ public class Player_Controller : MonoBehaviour
 			// Change player colour / model
 			transform.GetComponentInChildren<Renderer>().material = Red;
 		}
-
-
-
 	}
 }

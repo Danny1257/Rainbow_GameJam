@@ -97,15 +97,33 @@ public class Player_Movement : MonoBehaviour
 
 		player_Rigidbody.velocity = velocity;
 		Grounded = false;
-
-		Debug.Log("Jump");
 	}
 
-	void OnCollisionEnter(Collision collision)
+	public bool GetGrounded()
 	{
-		if (collision.transform.tag == "Platform")
+		return Grounded;
+	}
+
+	public void SetGrounded(bool State)
+	{
+		Grounded = State;
+	}
+
+	void OnTriggerEnter(Collider collider)
+	{
+		if (collider.transform.tag == "Platform")
 		{
 			Grounded = true;
+			Debug.Log("Grounded");
+		}
+	}
+
+	void OnTriggerExit(Collider collider)
+	{
+		if (collider.transform.tag == "Platform")
+		{
+			Grounded = false;
+			Debug.Log("Not Grounded");
 		}
 	}
 
