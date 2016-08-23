@@ -217,7 +217,7 @@ public class Player_Controller : MonoBehaviour
 			CurrentStatus = CharacterStatus.Wizard;
 
 			// Change the player colour / model
-			transform.GetComponentInChildren<Renderer>().material = Blue;
+			//transform.GetComponentInChildren<Renderer>().material = Blue;
 		}
 		else if (NumOfPickups == 6)
 		{
