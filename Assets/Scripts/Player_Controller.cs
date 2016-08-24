@@ -67,7 +67,8 @@ public class Player_Controller : MonoBehaviour
 
 		if (Input.GetMouseButtonDown(0))
 		{
-			wizard_teleport.Teleport();
+			if (wizard_teleport.GetTeleportReady())
+				wizard_teleport.Teleport();
 		}
 
 

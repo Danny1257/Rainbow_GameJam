@@ -6,14 +6,17 @@ public class Wizard_Teleport : MonoBehaviour
 	public float dashDistance;
 
 	private Player_Movement player_movement;
-	private float enableTimer;
-	private bool StartEnableTimer;
+	private float enableTimer, RechargeTimer;
+	private bool StartEnableTimer, TeleportReady, StartRechargeTimer;
 	// Use this for initialization
 	void Start ()
 	{
 		player_movement = transform.GetComponentInChildren<Player_Movement>();
 		enableTimer = 0.5f;
+		RechargeTimer = 2.0f;
 		StartEnableTimer = false;
+		StartRechargeTimer = false;
+		TeleportReady = true;
 	}
 	
 	// Update is called once per frame
@@ -29,10 +32,22 @@ public class Wizard_Teleport : MonoBehaviour
 				transform.GetComponentInChildren<TrailRenderer>().endWidth = 0;
 				transform.GetComponentInChildren<TrailRenderer>().startWidth = 0;
 				StartEnableTimer = false;
-
 			}
-
 		}
+
+		if (StartRechargeTimer)
+		{
+			RechargeTimer -= Time.deltaTime;
+
+			if (RechargeTimer <= 0)
+			{
+				RechargeTimer = 2.0f;
+				StartRechargeTimer = false;
+				TeleportReady = true;
+			}
+		}
+
+
 	}
 
 	public void Teleport()
@@ -57,5 +72,13 @@ public class Wizard_Teleport : MonoBehaviour
 			Camera.main.transform.position = new Vector3(Camera.main.transform.position.x - dashDistance, Camera.main.transform.position.y, Camera.main.transform.position.z);
 			transform.Translate(velocity);
 		}
+
+		TeleportReady = false;
+		StartRechargeTimer = true;
+	}
+
+	public bool GetTeleportReady()
+	{
+		return TeleportReady;
 	}
 }
