@@ -11,6 +11,7 @@ public class Player_Movement : MonoBehaviour
 	// Private Memebers
 	private Vector3 PlayerVelocity;
 	private bool Grounded, MovingLeft, MovingRight;
+	private float InitialXScale;
 
 	// Use this for initialization
 	void Start () 
@@ -20,6 +21,7 @@ public class Player_Movement : MonoBehaviour
 		FacingRight = true;
 		MovingLeft = false;
 		MovingRight = false;
+		InitialXScale = transform.localScale.x;
 	}	
 	
 	// Update is called once per frame
@@ -32,6 +34,16 @@ public class Player_Movement : MonoBehaviour
 			FacingRight = true;
 		else if (MovingLeft)
 			FacingRight = false;
+
+		if (FacingRight)
+		{
+			transform.localScale = new Vector3(InitialXScale, transform.localScale.y, transform.localScale.z);
+		}
+		else
+		{
+			transform.localScale = new Vector3(InitialXScale * -1, transform.localScale.y, transform.localScale.z);
+		}
+
 	}
 
 	void CheckForInput()
@@ -115,6 +127,14 @@ public class Player_Movement : MonoBehaviour
 		{
 			Grounded = true;
 			Debug.Log("Grounded");
+		}
+	}
+
+	void OnTriggerStay(Collider collider)
+	{
+		if (collider.transform.tag == "Platform")
+		{
+			Grounded = true;
 		}
 	}
 
