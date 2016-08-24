@@ -129,11 +129,6 @@ public class Wizard_Teleport : MonoBehaviour
 			else 
 				Debug.Log("NO OVERLAPPPP!!");
 
-
-
-
-			Debug.Log("Hit object = " + hit.transform.name);
-
 		}
 
 		return false;
