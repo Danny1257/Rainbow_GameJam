@@ -35,6 +35,7 @@ public class Player_Movement : MonoBehaviour
 		else if (MovingLeft)
 			FacingRight = false;
 
+
 		if (FacingRight)
 		{
 			transform.localScale = new Vector3(InitialXScale, transform.localScale.y, transform.localScale.z);
@@ -48,16 +49,35 @@ public class Player_Movement : MonoBehaviour
 
 	void CheckForInput()
 	{
+		if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
+		{
+			MovingLeft = false;
+			MovingRight = false;
+		}
+		else
+		{
+			if (Input.GetKey(KeyCode.A))
+			{
+				MovingLeft = true;
+			}
+
+			if (Input.GetKey(KeyCode.D))
+			{
+				MovingRight = true;
+			}
+		}
+
+
 		if (Input.GetKeyDown(KeyCode.A))		// Player moving left
 		{
 			FacingRight = false;
-			MovingLeft = true;
+			//MovingLeft = true;
 		}
 
-		if (Input.GetKey(KeyCode.D))			// Player moving right
+		if (Input.GetKeyDown(KeyCode.D))			// Player moving right
 		{
 			FacingRight = true;
-			MovingRight = true;
+			//MovingRight = true;
 		}
 
 		if (Input.GetKeyUp(KeyCode.A))
@@ -95,14 +115,10 @@ public class Player_Movement : MonoBehaviour
 			velocity = new Vector3(PlayerSpeed, player_Rigidbody.velocity.y, player_Rigidbody.velocity.z);		// Set the player moving right velocity
 		}
 		player_Rigidbody.velocity = velocity;			// Set the final player velocity
-
-
-
 	}
 
 	void Jump()
 	{
-
 		Rigidbody player_Rigidbody = this.transform.GetComponentInChildren<Rigidbody>();						// Initialise the player RigidBody
 
 		Vector3 velocity = new Vector3(player_Rigidbody.velocity.x, JumpPower, player_Rigidbody.velocity.z);
@@ -146,7 +162,4 @@ public class Player_Movement : MonoBehaviour
 			Debug.Log("Not Grounded");
 		}
 	}
-
-
-
 }
