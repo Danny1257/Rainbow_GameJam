@@ -237,4 +237,9 @@ public class Player_Controller : MonoBehaviour
 			transform.GetComponentInChildren<Renderer>().material = Red;
 		}
 	}
+
+	public void Death()
+	{
+
+	}
 }
