@@ -142,7 +142,7 @@ public class Player_Movement : MonoBehaviour
 		if (collider.transform.tag == "Platform")
 		{
 			Grounded = true;
-			Debug.Log("Grounded");
+			//Debug.Log("Grounded");
 		}
 	}
 
@@ -159,7 +159,7 @@ public class Player_Movement : MonoBehaviour
 		if (collider.transform.tag == "Platform")
 		{
 			Grounded = false;
-			Debug.Log("Not Grounded");
+			//Debug.Log("Not Grounded");
 		}
 	}
 }
