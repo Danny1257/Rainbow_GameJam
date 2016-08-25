@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlatformMovement : MonoBehaviour {
+public class PlatformMovement : MonoBehaviour 
+{
 
 	public float speed = 1;
 
@@ -9,35 +10,35 @@ public class PlatformMovement : MonoBehaviour {
 
 
 	// Update is called once per frame
-	void Update () {
-
-		transform.Translate (Vector3.left * speed * direction * Time.deltaTime);
-
-	
+	void Update () 
+	{
+		transform.Translate (Vector3.left * speed * direction * Time.deltaTime);	
 	}
 
-	void OnTriggerEnter(Collider other){
-
-
-
-		if (other.tag == "Target") {
-			if (direction == 1) {
-				Debug.Log ("Direction = " + direction);
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.tag == "Target") 
+		{
+			if (direction == 1) 
+			{
 				direction = -1;
-			} else {
+			}
+			else 
+			{
 				direction = 1;
 			}
 		}
-
-		if (other.tag == "Player") {
+		if (other.tag == "Player")
+		{
 			other.transform.parent = transform;
 		}
-
 	}
 
-	void OnTriggerExit(Collider other){
+	void OnTriggerExit(Collider other)
+	{
 
-		if(other.tag == "Player"){
+		if(other.tag == "Player")
+		{
 			other.transform.parent = null;
 		}
 	}
