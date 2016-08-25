@@ -5,6 +5,7 @@ public class Camera_Controller : MonoBehaviour
 {
 	private Transform player;
 
+	private AudioSource backgroundMusic;
 	private float offsetX, offsetY, MinY;
 	// Use this for initialization
 	void Start () 
@@ -22,6 +23,9 @@ public class Camera_Controller : MonoBehaviour
 		offsetY = transform.position.y - player.position.y;
 
 		MinY = -3.5f;
+
+		///backgroundMusic = transform.GetComponentInChildren<AudioSource>();
+		//backgroundMusic.Stop();
 	}
 	
 	// Update is called once per frame
