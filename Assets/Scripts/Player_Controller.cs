@@ -35,6 +35,14 @@ public class Player_Controller : MonoBehaviour
 		PersonalitiesCollected = 0;
 		NumOfPickups = 0;
 		ActiveCheckpoint = 0;
+
+		if (Application.loadedLevelName == "Level2")
+		{
+			NumOfPickups = 3;
+			if (!PersonalitiesList.Contains(CharacterStatus.Wizard))
+				PersonalitiesList.Add(CharacterStatus.Wizard);
+			CurrentStatus = CharacterStatus.Wizard;
+		}
 	}
 	
 	// Update is called once per frame
@@ -191,7 +199,8 @@ public class Player_Controller : MonoBehaviour
 
 		if (NumOfPickups == 3)
 		{
-			PersonalitiesList.Add(CharacterStatus.Wizard);
+			if (!PersonalitiesList.Contains(CharacterStatus.Wizard))
+				PersonalitiesList.Add(CharacterStatus.Wizard);
 			CurrentStatus = CharacterStatus.Wizard;
 
 			// Change the player colour / model
@@ -199,7 +208,8 @@ public class Player_Controller : MonoBehaviour
 		}
 		else if (NumOfPickups == 6)
 		{
-			PersonalitiesList.Add(CharacterStatus.Pirate);
+			if (!PersonalitiesList.Contains(CharacterStatus.Wizard))
+				PersonalitiesList.Add(CharacterStatus.Pirate);
 			CurrentStatus = CharacterStatus.Pirate;
 
 			// change player colour / model
