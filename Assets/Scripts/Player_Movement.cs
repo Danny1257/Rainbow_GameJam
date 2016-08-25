@@ -11,6 +11,7 @@ public class Player_Movement : MonoBehaviour
 	// Private Memebers
 	private Vector3 PlayerVelocity;
 	private bool Grounded, MovingLeft, MovingRight;
+	private float InitialXScale;
 
 	// Use this for initialization
 	void Start () 
@@ -20,6 +21,7 @@ public class Player_Movement : MonoBehaviour
 		FacingRight = true;
 		MovingLeft = false;
 		MovingRight = false;
+		InitialXScale = transform.localScale.x;
 	}	
 	
 	// Update is called once per frame
@@ -32,20 +34,50 @@ public class Player_Movement : MonoBehaviour
 			FacingRight = true;
 		else if (MovingLeft)
 			FacingRight = false;
+
+
+		if (FacingRight)
+		{
+			transform.localScale = new Vector3(InitialXScale, transform.localScale.y, transform.localScale.z);
+		}
+		else
+		{
+			transform.localScale = new Vector3(InitialXScale * -1, transform.localScale.y, transform.localScale.z);
+		}
+
 	}
 
 	void CheckForInput()
 	{
+		if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
+		{
+			MovingLeft = false;
+			MovingRight = false;
+		}
+		else
+		{
+			if (Input.GetKey(KeyCode.A))
+			{
+				MovingLeft = true;
+			}
+
+			if (Input.GetKey(KeyCode.D))
+			{
+				MovingRight = true;
+			}
+		}
+
+
 		if (Input.GetKeyDown(KeyCode.A))		// Player moving left
 		{
 			FacingRight = false;
-			MovingLeft = true;
+			//MovingLeft = true;
 		}
 
-		if (Input.GetKey(KeyCode.D))			// Player moving right
+		if (Input.GetKeyDown(KeyCode.D))			// Player moving right
 		{
 			FacingRight = true;
-			MovingRight = true;
+			//MovingRight = true;
 		}
 
 		if (Input.GetKeyUp(KeyCode.A))
@@ -83,14 +115,10 @@ public class Player_Movement : MonoBehaviour
 			velocity = new Vector3(PlayerSpeed, player_Rigidbody.velocity.y, player_Rigidbody.velocity.z);		// Set the player moving right velocity
 		}
 		player_Rigidbody.velocity = velocity;			// Set the final player velocity
-
-
-
 	}
 
 	void Jump()
 	{
-
 		Rigidbody player_Rigidbody = this.transform.GetComponentInChildren<Rigidbody>();						// Initialise the player RigidBody
 
 		Vector3 velocity = new Vector3(player_Rigidbody.velocity.x, JumpPower, player_Rigidbody.velocity.z);
@@ -118,6 +146,14 @@ public class Player_Movement : MonoBehaviour
 		}
 	}
 
+	void OnTriggerStay(Collider collider)
+	{
+		if (collider.transform.tag == "Platform")
+		{
+			Grounded = true;
+		}
+	}
+
 	void OnTriggerExit(Collider collider)
 	{
 		if (collider.transform.tag == "Platform")
@@ -126,7 +162,4 @@ public class Player_Movement : MonoBehaviour
 			Debug.Log("Not Grounded");
 		}
 	}
-
-
-
 }
