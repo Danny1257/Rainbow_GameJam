@@ -7,6 +7,7 @@ public class Player_Controller : MonoBehaviour
 	// Public members
 
 	public Material Blue, Red, Yellow;
+	public List<GameObject> CheckPoints = new List<GameObject>();
 
 	// Private Members
 	private enum CharacterStatus{ Default, Wizard, Astronaut, Pirate };
@@ -19,8 +20,10 @@ public class Player_Controller : MonoBehaviour
 	private Astronaut_Fly astronaut_Fly;
 	private Pirate_Bomb pirate_bomb;
 
-	private int PersonalitiesCollected, NumOfPickups;
+	private int ActiveCheckpoint;
 
+	private int PersonalitiesCollected, NumOfPickups;
+	
 	// Use this for initialization
 	void Start ()
 	{
@@ -31,6 +34,7 @@ public class Player_Controller : MonoBehaviour
 		CurrentStatus = CharacterStatus.Default;
 		PersonalitiesCollected = 0;
 		NumOfPickups = 0;
+		ActiveCheckpoint = 0;
 	}
 	
 	// Update is called once per frame
@@ -183,33 +187,6 @@ public class Player_Controller : MonoBehaviour
 
 	public void Pickup(int pickUpNumber)
 	{
-		/*
-		if (pickUpNumber == 1)
-		{
-			PersonalitiesList.Add(CharacterStatus.Wizard);
-			CurrentStatus = CharacterStatus.Wizard;
-
-			// Change the players colour / model to wizard character
-			transform.GetComponent<Renderer>().material = Blue;
-		}
-		else if (pickUpNumber == 2)
-		{
-			PersonalitiesList.Add(CharacterStatus.Astronaut);
-			CurrentStatus = CharacterStatus.Astronaut;
-			
-			// Change the players colour / model to wizard character
-			transform.GetComponent<Renderer>().material = Red;
-		}
-
-		else if (pickUpNumber == 3)
-		{
-			PersonalitiesList.Add(CharacterStatus.Pirate);
-			CurrentStatus = CharacterStatus.Pirate;
-			
-			// Change the players colour / model to wizard character
-			transform.GetComponent<Renderer>().material = Yellow;
-		}*/
-
 		NumOfPickups++;
 
 		if (NumOfPickups == 3)
@@ -236,5 +213,29 @@ public class Player_Controller : MonoBehaviour
 			// Change player colour / model
 			transform.GetComponentInChildren<Renderer>().material = Red;
 		}
+	}
+
+	void OnTriggerEnter(Collider collider)
+	{
+		if (collider.name == "CheckPoint_2")
+		{
+			ActiveCheckpoint = 1;
+
+		}
+		else if (collider.name == "CheckPoint_3")
+		{
+			ActiveCheckpoint = 2;
+		}
+	}
+
+
+	public void Death()
+	{
+		Debug.Log("Death");
+		// Spawn player at the active checkPoint
+		Transform checkpointTransform = CheckPoints[ActiveCheckpoint].transform;
+		Vector3 newPos = new Vector3(checkpointTransform.position.x, checkpointTransform.position.y, 0);
+
+		transform.position = newPos;
 	}
 }
