@@ -238,6 +238,11 @@ public class Player_Controller : MonoBehaviour
 		}
 	}
 
+	public int GetNumOfPickups()
+	{
+		return NumOfPickups;
+	}
+
 
 	public void Death()
 	{
