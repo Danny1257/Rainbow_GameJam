@@ -21,6 +21,7 @@ public class Fall_Death : MonoBehaviour {
 	{
 		if (collider.tag == "Player")
 		{
+			Debug.Log("player hit death trigger");
 			playerController = collider.transform.GetComponentInChildren<Player_Controller>();
 			playerController.Death();
 		}
