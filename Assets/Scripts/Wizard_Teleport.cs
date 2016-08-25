@@ -99,13 +99,22 @@ public class Wizard_Teleport : MonoBehaviour
 			BoxCollider playerCollider = transform.GetComponentInChildren<BoxCollider>();
 
 			Vector3 newPlayerPos = new Vector3(transform.position.x + dashDistance, transform.position.y, transform.position.z);
+			Debug.Log("player Y = " + transform.position.y);
 			float playerRadiusX = playerCollider.size.x;
 			float playerRadiusY = playerCollider.size.y;
+			Debug.Log("Player xRad = " + playerRadiusX);
+			Debug.Log("Plpayer YRad = " + playerRadiusY);
 
 			// check for x overlapp
-			if ((newPlayerPos.x + playerRadiusX) <= hitCollider.bounds.max.x && (newPlayerPos.x - playerRadiusX) >= hitCollider.bounds.min.x)
+			if ((newPlayerPos.x + playerRadiusX) >= hitCollider.bounds.min.x && (newPlayerPos.x - playerRadiusX) <= hitCollider.bounds.max.x)
 			{
-				if ((newPlayerPos.y + playerRadiusY) <= hitCollider.bounds.max.y && (newPlayerPos.y - playerRadiusY) >= hitCollider.bounds.min.y)
+				Debug.Log("playerpos + rad = " + (newPlayerPos.y + playerRadiusY));
+				Debug.Log("Collider bounds max = " + hitCollider.bounds.max.y);
+
+				Debug.Log("playerpos - rad = " + (newPlayerPos.y - playerRadiusY));
+				Debug.Log("Collider bounds min = " + hitCollider.bounds.min.y);
+
+				if ((newPlayerPos.y + playerRadiusY) >= hitCollider.bounds.min.y && (newPlayerPos.y - playerRadiusY) <= hitCollider.bounds.max.y)
 				{
 					if (player_movement.FacingRight)
 					{
@@ -121,6 +130,7 @@ public class Wizard_Teleport : MonoBehaviour
 						Vector3 newPos = new Vector3(XRight + (playerCollider.size.x), transform.position.y, 0);
 						transform.Translate(newPos);
 					}
+					StartEnableTimer = true;
 					return true;
 				}
 				else
