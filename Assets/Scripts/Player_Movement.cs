@@ -11,7 +11,8 @@ public class Player_Movement : MonoBehaviour
 	// Private Memebers
 	private Vector3 PlayerVelocity;
 	private bool Grounded, MovingLeft, MovingRight;
-	private float InitialXScale;
+	private float InitialZScale;
+	private Animator player_Animator;
 
 	// Use this for initialization
 	void Start () 
@@ -21,7 +22,8 @@ public class Player_Movement : MonoBehaviour
 		FacingRight = true;
 		MovingLeft = false;
 		MovingRight = false;
-		InitialXScale = transform.localScale.x;
+		InitialZScale = transform.localScale.z;
+		player_Animator = transform.GetComponentInChildren<Animator>();
 	}	
 	
 	// Update is called once per frame
@@ -38,11 +40,21 @@ public class Player_Movement : MonoBehaviour
 
 		if (FacingRight)
 		{
-			transform.localScale = new Vector3(InitialXScale, transform.localScale.y, transform.localScale.z);
+			transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, InitialZScale);
 		}
 		else
 		{
-			transform.localScale = new Vector3(InitialXScale * -1, transform.localScale.y, transform.localScale.z);
+			transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, InitialZScale * -1);
+		}
+
+
+		if (MovingRight == true || MovingLeft == true)
+		{
+			player_Animator.SetBool("PlayerMoving", true);
+		}
+		else
+		{
+			player_Animator.SetBool("PlayerMoving", false);
 		}
 
 	}
