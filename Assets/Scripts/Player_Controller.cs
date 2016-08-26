@@ -19,10 +19,9 @@ public class Player_Controller : MonoBehaviour
 
 	private Astronaut_Fly astronaut_Fly;
 	private Pirate_Bomb pirate_bomb;
-
 	private int ActiveCheckpoint;
-
 	private int PersonalitiesCollected, NumOfPickups;
+	private Animator player_animator;
 	
 	// Use this for initialization
 	void Start ()
@@ -35,6 +34,7 @@ public class Player_Controller : MonoBehaviour
 		PersonalitiesCollected = 0;
 		NumOfPickups = 0;
 		ActiveCheckpoint = 0;
+		player_animator = transform.GetComponentInChildren<Animator>();
 
 		if (Application.loadedLevelName == "Level2")
 		{
@@ -101,6 +101,7 @@ public class Player_Controller : MonoBehaviour
 		if (Input.GetMouseButtonUp(0))
 		{
 			astronaut_Fly.StartTimer();
+			astronaut_Fly.StopParticles();
 		}
 	}
 
@@ -199,9 +200,9 @@ public class Player_Controller : MonoBehaviour
 
 		if (NumOfPickups == 3)
 		{
-			if (!PersonalitiesList.Contains(CharacterStatus.Wizard))
-				PersonalitiesList.Add(CharacterStatus.Wizard);
-			CurrentStatus = CharacterStatus.Wizard;
+			if (!PersonalitiesList.Contains(CharacterStatus.Astronaut))
+				PersonalitiesList.Add(CharacterStatus.Astronaut);
+			CurrentStatus = CharacterStatus.Astronaut;
 
 			// Change the player colour / model
 			//transform.GetComponentInChildren<Renderer>().material = Blue;
