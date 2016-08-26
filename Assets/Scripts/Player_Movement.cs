@@ -116,7 +116,7 @@ public class Player_Movement : MonoBehaviour
 	{
 		Rigidbody player_Rigidbody = this.transform.GetComponentInChildren<Rigidbody>();						// Initialise the player RigidBody
 
-		Vector3 velocity = new Vector3(0, player_Rigidbody.velocity.y, player_Rigidbody.velocity.z);			// Initialise the player velocity
+		Vector3 velocity = new Vector3(0, player_Rigidbody.velocity.y, 0);			// Initialise the player velocity
 
 		if (MovingLeft)
 		{
