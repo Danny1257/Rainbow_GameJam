@@ -43,11 +43,13 @@ public class Disappear_Platform : MonoBehaviour {
 		if (timer <= 3)
 		{
 			platform2.GetComponentInChildren<Renderer>().enabled = true;
+			platform2_collider.enabled = true;
 		}
 
 		if (timer <= 0.5) 
 		{
 			platform2.GetComponentInChildren<Renderer>().enabled = false;
+			platform2_collider.enabled = false;
 		}	
 	}
 
