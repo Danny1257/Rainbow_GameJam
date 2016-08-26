@@ -21,7 +21,7 @@ public class Astronaut_Fly : MonoBehaviour
 		RechargeTimer = 1.0f;
 		FuelLeft = 100;
 		Flying = false;
-		//my_particleSystem.GetComponentInChildren<ParticleEmitter>().enabled = false;
+		my_particleSystem.Stop();
 	}
 	
 	// Update is called once per frame
@@ -50,7 +50,8 @@ public class Astronaut_Fly : MonoBehaviour
 	{
 		if (FlyReady)
 		{
-			//my_particleSystem.GetComponentInChildren<ParticleEmitter>().enabled = true;
+			if (!my_particleSystem.isPlaying)
+				my_particleSystem.Play();
 			Flying = true;
 			FuelLeft -= Time.deltaTime * (100/3);
 
@@ -69,7 +70,7 @@ public class Astronaut_Fly : MonoBehaviour
 			if (FuelLeft <= 0)
 			{
 				FlyReady = false;
-				//my_particleSystem.GetComponentInChildren<ParticleEmitter>().enabled = false;
+				my_particleSystem.Stop();
 			}
 
 			Debug.Log("Fuel Left = " + FuelLeft);
@@ -78,7 +79,7 @@ public class Astronaut_Fly : MonoBehaviour
 
 	public void StopParticles()
 	{
-		//my_particleSystem.GetComponentInChildren<ParticleEmitter>().enabled = false;
+		my_particleSystem.Stop();
 	}
 
 	public void StartTimer()
