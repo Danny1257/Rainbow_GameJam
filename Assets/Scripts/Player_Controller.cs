@@ -195,9 +195,9 @@ public class Player_Controller : MonoBehaviour
 
 		if (NumOfPickups == 3)
 		{
-			if (!PersonalitiesList.Contains(CharacterStatus.Wizard))
-				PersonalitiesList.Add(CharacterStatus.Wizard);
-			CurrentStatus = CharacterStatus.Wizard;
+			if (!PersonalitiesList.Contains(CharacterStatus.Pirate))
+				PersonalitiesList.Add(CharacterStatus.Pirate);
+			CurrentStatus = CharacterStatus.Pirate;
 
 			// Change the player colour / model
 			//transform.GetComponentInChildren<Renderer>().material = Blue;

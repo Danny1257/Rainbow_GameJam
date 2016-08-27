@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platform
   - Target
+  - BombTarget
   layers:
   - Default
   - TransparentFX

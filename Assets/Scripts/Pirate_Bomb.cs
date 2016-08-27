@@ -5,11 +5,14 @@ public class Pirate_Bomb : MonoBehaviour
 {
 	public GameObject AimObject, Bomb;
 	public float MaxForce;
+
 	private Rigidbody body;
 	private Vector3 mousePos, screenPos;
 	private GameObject currentBomb;
 	private bool BombSpawned, BombReleased, BombReady, StartTimer;
 	private float force, DestroyTimer;
+	private GameObject Current_ExplosionZone_Object;
+	private Explosion_Zone explosion_zone;
 	
 	// Use this for initialization
 	void Start () 
@@ -30,7 +33,8 @@ public class Pirate_Bomb : MonoBehaviour
 		if (BombSpawned)
 		{
 			BoxCollider playerBox = transform.GetComponentInChildren<BoxCollider>();
-			currentBomb.transform.position = new Vector3(transform.position.x + (playerBox.size.x/2) + 0.1f, transform.position.y, transform.position.z);
+			currentBomb.transform.position = new Vector3(transform.position.x + (playerBox.size.x/2) + 0.1f, transform.position.y + + (playerBox.size.y/2), transform.position.z);
+			//currentBomb.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 			if (force < MaxForce)
 			{
 				force += Time.deltaTime * 100;
@@ -73,76 +77,25 @@ public class Pirate_Bomb : MonoBehaviour
 		if (StartTimer)
 		{
 			DestroyTimer -= Time.deltaTime;
-			if (DestroyTimer <= 0)
+			if (DestroyTimer <= 0)					////////// EXPLOSION POINT HERE!!!
 			{
+				explosion_zone = currentBomb.transform.GetComponentInChildren<Explosion_Zone>();
+
+				if (explosion_zone.GetBombInTargetZone())
+				{
+					Debug.Log ("The explosion hit! Target Aactive!");
+				}
+				else 
+				{
+					Debug.Log("The explosion missed the targets!");
+				}
+
 				Destroy(currentBomb);
 				BombReady = true;
 				StartTimer = false;
 				DestroyTimer = 2.0f;
 			}
 		}
-		
-		
-		
-		
-		
-		/* HOW TO FIX
-		 * Find both vectors for current rotation of aim object, and rotation vector of center of player to mouse position.
-		 * Find angle between both vectors, then rotate around the player position by that angle.
-		 */
-		/*mousePos = Input.mousePosition;
-
-		RaycastHit hit;
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-		Plane zPlane = new Plane(Vector3.forward, Vector3.zero);
-
-		float distance = 0;
-
-		if (zPlane.Raycast(ray, out distance))
-		{
-			screenPos = ray.GetPoint(distance);
-		}
-
-		Vector3 Vect1, Vect2;
-		
-		Vect1 = screenPos - transform.position;
-		Vect2 = AimObject.transform.position - transform.position;
-		
-		float angle = Vector3.Angle(Vect1, Vect2);
-
-		//AimObject.transform.LookAt(screenPos);
-
-
-		//AimObject.transform.rotation.eulerAngles = new Vector3(0, 0, angle);*/
-		
-		
-		
-		
-		/*Ray cameraRay = Camera.main.ScreenPointToRay(mousePos);
-
-		float distance = Camera.main.transform.position.z * -2;
-
-		Vector3 MouseWorldPos = Camera.main.ScreenToWorldPoint(cameraRay.GetPoint(distance));
-
-		MouseWorldPos = new Vector3(MouseWorldPos.x, MouseWorldPos.y, 0);
-
-		Debug.Log("MouseWorldPos = " + MouseWorldPos);
-		*/
-		
-		
-		//AimObject.transform.RotateAround(transform.position, new Vector3(0, 0, 1), angle);
-		
-		
-		//mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z - Camera.main.transform.position.z));
-		//screenPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, transform.position.z - Camera.main.transform.position.z));
-		
-		//float rotion_amount = Quaternion.Euler(0, 0, Mathf.Atan2((mousePos.y - AimObject.transform.position.y), (mousePos.x - AimObject.transform.position.x))*Mathf.Rad2Deg - 90).z;
-		//AimObject.transform.RotateAround(transform.position, new Vector3(0, 0, 1), rotion_amount);
-		
-		//body.transform.eulerAngles = new Vector3(0,0,Mathf.Atan2((mousePos.y - transform.position.y), (mousePos.x - transform.position.x))*Mathf.Rad2Deg - 90);
-		
-		//AimObject.transform.rotation.eulerAngles = new Vector3(0, 0, Mathf.Atan2((screenPos.y - transform.position.y), (screenPos.x - transform.position.x)) * Mathf.Rad2Deg);
 	}
 
 	public bool GetBombReady()
@@ -164,11 +117,12 @@ public class Pirate_Bomb : MonoBehaviour
 	{
 		force = 0;
 		currentBomb = Instantiate(Bomb);
+		Current_ExplosionZone_Object = currentBomb.transform.GetChild(0).gameObject;
 		BombSpawned = true;
 
 		BoxCollider playerBox = transform.GetComponentInChildren<BoxCollider>();
 		
-		currentBomb.transform.position = new Vector3(transform.position.x + (playerBox.size.x/2) + 0.1f, transform.position.y, transform.position.z);
+		currentBomb.transform.position = new Vector3(transform.position.x + (playerBox.size.x/2) + 0.1f, transform.position.y + (playerBox.size.y/2), transform.position.z);
 		currentBomb.transform.GetComponentInChildren<Rigidbody>().useGravity = false;
 	}
 	
