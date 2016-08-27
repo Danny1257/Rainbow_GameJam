@@ -6,11 +6,11 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Silhouette Material
-  m_Shader: {fileID: 4800000, guid: c4d765030e071a641a054a9e9d6679e6, type: 3}
-  m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 1
-  m_CustomRenderQueue: -1
+  m_Name: NoLight
+  m_Shader: {fileID: 10755, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -127,22 +127,6 @@ Material:
         first:
           name: _Metallic
         second: 0
-      data:
-        first:
-          name: _GlossMapScale
-        second: 1
-      data:
-        first:
-          name: _GlossyReflections
-        second: 1
-      data:
-        first:
-          name: _SmoothnessTextureChannel
-        second: 0
-      data:
-        first:
-          name: _SpecularHighlights
-        second: 1
     m_Colors:
       data:
         first:
@@ -151,4 +135,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 0, g: 0, b: 0, a: 1}
