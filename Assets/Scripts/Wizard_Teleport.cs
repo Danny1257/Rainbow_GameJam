@@ -58,7 +58,6 @@ public class Wizard_Teleport : MonoBehaviour
 		if (CollideDetection() == false)
 		{
 			StartEnableTimer = true;
-			Rigidbody body = this.transform.GetComponentInChildren<Rigidbody>();
 			Vector3 velocity;
 			if (player_movement.FacingRight)
 			{

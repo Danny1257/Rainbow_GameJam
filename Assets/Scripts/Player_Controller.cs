@@ -15,13 +15,11 @@ public class Player_Controller : MonoBehaviour
 	private List<CharacterStatus> PersonalitiesList = new List<CharacterStatus>();
 
 	private Wizard_Teleport wizard_teleport;
-	private TrailRenderer wizard_trail;
-
 	private Astronaut_Fly astronaut_Fly;
 	private Pirate_Bomb pirate_bomb;
 	private int ActiveCheckpoint;
-	private int PersonalitiesCollected, NumOfPickups;
-	private Animator player_animator;
+	private int NumOfPickups;
+
 	
 	// Use this for initialization
 	void Start ()
@@ -29,12 +27,9 @@ public class Player_Controller : MonoBehaviour
 		wizard_teleport = transform.GetComponentInChildren<Wizard_Teleport>();
 		astronaut_Fly = transform.GetComponentInChildren<Astronaut_Fly>();
 		pirate_bomb = transform.GetComponentInChildren<Pirate_Bomb>();
-		wizard_trail = transform.GetComponentInChildren<TrailRenderer>();
 		CurrentStatus = CharacterStatus.Default;
-		PersonalitiesCollected = 0;
 		NumOfPickups = 0;
 		ActiveCheckpoint = 0;
-		player_animator = transform.GetComponentInChildren<Animator>();
 
 		if (Application.loadedLevelName == "Level2")
 		{
@@ -200,16 +195,16 @@ public class Player_Controller : MonoBehaviour
 
 		if (NumOfPickups == 3)
 		{
-			if (!PersonalitiesList.Contains(CharacterStatus.Astronaut))
-				PersonalitiesList.Add(CharacterStatus.Astronaut);
-			CurrentStatus = CharacterStatus.Astronaut;
+			if (!PersonalitiesList.Contains(CharacterStatus.Wizard))
+				PersonalitiesList.Add(CharacterStatus.Wizard);
+			CurrentStatus = CharacterStatus.Wizard;
 
 			// Change the player colour / model
 			//transform.GetComponentInChildren<Renderer>().material = Blue;
 		}
 		else if (NumOfPickups == 6)
 		{
-			if (!PersonalitiesList.Contains(CharacterStatus.Wizard))
+			if (!PersonalitiesList.Contains(CharacterStatus.Pirate))
 				PersonalitiesList.Add(CharacterStatus.Pirate);
 			CurrentStatus = CharacterStatus.Pirate;
 

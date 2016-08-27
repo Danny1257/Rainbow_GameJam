@@ -10,7 +10,6 @@ public class Astronaut_Fly : MonoBehaviour
 	//private members
 	private bool FlyReady, RechargeTheTimer, Flying;
 	private float RechargeTimer, FuelLeft;
-	private ParticleEmitter particleEmitter;
 
 
 	// Use this for initialization
