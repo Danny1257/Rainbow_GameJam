@@ -9,20 +9,18 @@ public class Player_Movement : MonoBehaviour
 
 
 	// Private Memebers
-	private Vector3 PlayerVelocity;
 	private bool Grounded, MovingLeft, MovingRight;
-	private float InitialZScale;
+	private float InitialXScale;
 	private Animator player_Animator;
 
 	// Use this for initialization
 	void Start () 
 	{
-		PlayerVelocity = new Vector3(0,0,0);
 		Grounded = false;
 		FacingRight = true;
 		MovingLeft = false;
 		MovingRight = false;
-		InitialZScale = transform.localScale.z;
+		InitialXScale = transform.localScale.x;
 		player_Animator = transform.GetComponentInChildren<Animator>();
 	}	
 	
@@ -32,6 +30,11 @@ public class Player_Movement : MonoBehaviour
 		CheckForInput();			// Check for player input
 		UpdatePosition();			// Update the players position
 
+		if (Grounded)
+			player_Animator.SetBool("Grounded", true);
+		else
+			player_Animator.SetBool("Grounded", false);
+
 		if (MovingRight)
 			FacingRight = true;
 		else if (MovingLeft)
@@ -40,11 +43,11 @@ public class Player_Movement : MonoBehaviour
 
 		if (FacingRight)
 		{
-			transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, InitialZScale);
+			transform.localScale = new Vector3(InitialXScale, transform.localScale.y, transform.localScale.z);
 		}
 		else
 		{
-			transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, InitialZScale * -1);
+			transform.localScale = new Vector3(InitialXScale * -1, transform.localScale.y, transform.localScale.z);
 		}
 
 
@@ -137,6 +140,18 @@ public class Player_Movement : MonoBehaviour
 
 		player_Rigidbody.velocity = velocity;
 		Grounded = false;
+		if (!MovingLeft && ! MovingRight)
+		{
+			player_Animator.SetTrigger("IdleJump");
+			player_Animator.ResetTrigger("MovingJump");
+		}
+		else
+		{
+			player_Animator.SetTrigger("MovingJump");
+			player_Animator.ResetTrigger("IdleJump");
+		}
+
+
 	}
 
 	public bool GetGrounded()
@@ -154,7 +169,8 @@ public class Player_Movement : MonoBehaviour
 		if (collider.transform.tag == "Platform")
 		{
 			Grounded = true;
-			//Debug.Log("Grounded");
+			player_Animator.ResetTrigger("MovingJump");
+			player_Animator.ResetTrigger("IdleJump");
 		}
 	}
 

@@ -8,15 +8,12 @@ public class Disappear_Platform : MonoBehaviour {
 
 	private float timer = 5;
 	private BoxCollider platform1_collider, platform2_collider;
-	private GameObject Grounded_Sensor1, Grounded_Sensor2;
 
 	void Start()
 	{
 		platform1_collider = platform1.GetComponentInChildren<BoxCollider>();
 		platform2_collider = platform2.GetComponentInChildren<BoxCollider>();
-
-		Grounded_Sensor1 = platform1.transform.GetChild(0).gameObject;
-		Grounded_Sensor2 = platform2.transform.GetChild(0).gameObject;
+	
 	}
 
 	// Update is called once per frame
