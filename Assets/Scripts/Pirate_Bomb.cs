@@ -39,7 +39,6 @@ public class Pirate_Bomb : MonoBehaviour
 			
 			if (BombReleased)
 			{
-				RaycastHit hit;
 				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 				
 				Plane zPlane = new Plane(Vector3.forward, Vector3.zero);
