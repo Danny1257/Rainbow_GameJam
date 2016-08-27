@@ -17,8 +17,6 @@ public class Camera_Controller : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		Debug.Log("Player name = " + player.name);
-		Debug.Log("Player pos = " + player.transform.position);
 		if (player != null)
 		{
 			Vector3 pos = transform.position;
