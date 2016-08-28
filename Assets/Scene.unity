@@ -3763,7 +3763,7 @@ Transform:
   m_GameObject: {fileID: 1247835247}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .583431482, y: .583431482, z: .583431482}
   m_Children:
   - {fileID: 104974015}
   - {fileID: 1921192670}
@@ -4833,7 +4833,7 @@ Transform:
   m_GameObject: {fileID: 1763456315}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -13.8800001, y: -.209999084, z: 0}
-  m_LocalScale: {x: .583431482, y: .583431482, z: .583431482}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2129454491}
   - {fileID: 1318930688}
@@ -4855,7 +4855,7 @@ MonoBehaviour:
   Bomb: {fileID: 171914, guid: cb773b9622752164984a8275e676bee3, type: 2}
   EmptyBar: {fileID: 2129454490}
   PowerBar: {fileID: 1318930687}
-  MaxForce: 300
+  MaxForce: 500
 --- !u!114 &1763456318
 MonoBehaviour:
   m_ObjectHideFlags: 0
