@@ -6600,12 +6600,12 @@ GameObject:
   - 95: {fileID: 2007503222}
   - 54: {fileID: 2007503221}
   - 96: {fileID: 2007503220}
-  - 65: {fileID: 2007503219}
   - 114: {fileID: 2007503218}
   - 114: {fileID: 2007503217}
   - 114: {fileID: 2007503216}
   - 114: {fileID: 2007503215}
   - 114: {fileID: 2007503214}
+  - 136: {fileID: 2007503219}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -6699,8 +6699,8 @@ MonoBehaviour:
   - {fileID: 1027442100}
   PickUps_List: []
   PickUpObject: {fileID: 176904, guid: a5e509e013ceaf34386f82b60e7d03e8, type: 2}
---- !u!65 &2007503219
-BoxCollider:
+--- !u!136 &2007503219
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -6708,9 +6708,10 @@ BoxCollider:
   m_Material: {fileID: 13400000, guid: 09c44d0923830504eb9a8121100270eb, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.36000001, y: 2.05999994, z: 1.73000002}
-  m_Center: {x: 0, y: .899999976, z: -.0299999993}
+  m_Radius: .589999974
+  m_Height: 3.07999992
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.25999999, z: 0}
 --- !u!96 &2007503220
 TrailRenderer:
   m_ObjectHideFlags: 0
