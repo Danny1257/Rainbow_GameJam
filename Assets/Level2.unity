@@ -2175,7 +2175,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .999000013, y: .100000001, z: 1}
+  m_Size: {x: .980000019, y: .100000001, z: 1}
   m_Center: {x: 0, y: .451000005, z: 0}
 --- !u!1 &387254880
 GameObject:
@@ -2972,7 +2972,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .999000013, y: .100000001, z: 1}
+  m_Size: {x: .980000019, y: .100000001, z: 1}
   m_Center: {x: 0, y: .451000005, z: 0}
 --- !u!1 &682060473
 GameObject:
@@ -4412,7 +4412,7 @@ GameObject:
   - 65: {fileID: 1281296467}
   m_Layer: 0
   m_Name: HorizontalPlatform
-  m_TagString: Platform
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4437,7 +4437,7 @@ BoxCollider:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1281296463}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 09c44d0923830504eb9a8121100270eb, type: 2}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
@@ -4465,7 +4465,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1281296463}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 09c44d0923830504eb9a8121100270eb, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -4713,7 +4713,7 @@ GameObject:
   - 65: {fileID: 1344773899}
   m_Layer: 0
   m_Name: HorizontalPlatform (2)
-  m_TagString: Platform
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4724,7 +4724,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1344773898}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 09c44d0923830504eb9a8121100270eb, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -4750,7 +4750,7 @@ BoxCollider:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1344773898}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 09c44d0923830504eb9a8121100270eb, type: 2}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
@@ -4870,7 +4870,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .999000013, y: .100000001, z: 1}
+  m_Size: {x: .980000019, y: .100000001, z: 1}
   m_Center: {x: 0, y: .451000005, z: 0}
 --- !u!1 &1365455253
 GameObject:
@@ -5823,7 +5823,7 @@ GameObject:
   - 65: {fileID: 1746864141}
   m_Layer: 0
   m_Name: PlatformUp
-  m_TagString: Platform
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5877,7 +5877,7 @@ BoxCollider:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1746864140}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 09c44d0923830504eb9a8121100270eb, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
