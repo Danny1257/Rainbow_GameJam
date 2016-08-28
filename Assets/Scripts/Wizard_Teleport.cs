@@ -95,12 +95,12 @@ public class Wizard_Teleport : MonoBehaviour
 			// Box collision
 
 			BoxCollider hitCollider = hit.transform.GetComponentInChildren<BoxCollider>();
-			BoxCollider playerCollider = transform.GetComponentInChildren<BoxCollider>();
+			CapsuleCollider playerCollider = transform.GetComponentInChildren<CapsuleCollider>();
 
 			Vector3 newPlayerPos = new Vector3(transform.position.x + dashDistance, transform.position.y, transform.position.z);
 			Debug.Log("player Y = " + transform.position.y);
-			float playerRadiusX = playerCollider.size.x;
-			float playerRadiusY = playerCollider.size.y;
+			float playerRadiusX = playerCollider.radius;
+			float playerRadiusY = playerCollider.height;
 			Debug.Log("Player xRad = " + playerRadiusX);
 			Debug.Log("Plpayer YRad = " + playerRadiusY);
 
@@ -118,7 +118,7 @@ public class Wizard_Teleport : MonoBehaviour
 					if (player_movement.FacingRight)
 					{
 						float XLeft = hitCollider.bounds.min.x;
-						Vector3 newPos = new Vector3(XLeft - playerCollider.size.x, transform.position.y, 0);
+						Vector3 newPos = new Vector3(XLeft - playerCollider.radius, transform.position.y, 0);
 						Debug.Log("new pos = " + newPos);
 						transform.position = newPos;
 						Debug.Log("Left of object");
@@ -126,7 +126,7 @@ public class Wizard_Teleport : MonoBehaviour
 					else
 					{
 						float XRight = hitCollider.bounds.max.x;
-						Vector3 newPos = new Vector3(XRight + (playerCollider.size.x), transform.position.y, 0);
+						Vector3 newPos = new Vector3(XRight + (playerCollider.radius), transform.position.y, 0);
 						transform.Translate(newPos);
 					}
 					StartEnableTimer = true;

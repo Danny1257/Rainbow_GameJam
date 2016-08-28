@@ -30,7 +30,7 @@ public class Player_Movement : MonoBehaviour
 		CheckForInput();			// Check for player input
 		UpdatePosition();			// Update the players position
 
-		Debug.Log("Grounded = " + Grounded);
+		//Debug.Log("Grounded = " + Grounded);
 
 		if (Grounded)
 		{
