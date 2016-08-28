@@ -3,8 +3,9 @@ using System.Collections;
 
 public class Pirate_Bomb : MonoBehaviour 
 {
-	public GameObject AimObject, Bomb;
+	public GameObject AimObject, Bomb, EmptyBar, PowerBar;
 	public float MaxForce;
+
 
 	private Rigidbody body;
 	private Vector3 mousePos, screenPos;
@@ -13,6 +14,7 @@ public class Pirate_Bomb : MonoBehaviour
 	private float force, DestroyTimer;
 	private GameObject Current_ExplosionZone_Object;
 	private Explosion_Zone explosion_zone;
+	private float MaxBarScale;
 	
 	// Use this for initialization
 	void Start () 
@@ -24,7 +26,8 @@ public class Pirate_Bomb : MonoBehaviour
 		StartTimer = false;
 		force = 0.0f;
 		DestroyTimer = 2.0f;
-		
+		MaxBarScale = PowerBar.transform.localScale.x;
+		PowerBar.transform.localScale = new Vector3(0, PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
 	}
 	
 	// Update is called once per frame
@@ -32,12 +35,13 @@ public class Pirate_Bomb : MonoBehaviour
 	{
 		if (BombSpawned)
 		{
-			BoxCollider playerBox = transform.GetComponentInChildren<BoxCollider>();
-			currentBomb.transform.position = new Vector3(transform.position.x + (playerBox.size.x/2) + 0.1f, transform.position.y + + (playerBox.size.y/2), transform.position.z);
+			CapsuleCollider playerBox = transform.GetComponentInChildren<CapsuleCollider>();
+			currentBomb.transform.position = new Vector3(transform.position.x + (playerBox.radius) + 0.1f, transform.position.y + + (playerBox.radius), transform.position.z);
 			//currentBomb.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 			if (force < MaxForce)
 			{
 				force += Time.deltaTime * 100;
+
 			}
 			
 			
@@ -70,6 +74,11 @@ public class Pirate_Bomb : MonoBehaviour
 				
 				BombSpawned = false;
 				BombReleased = false;
+
+				// Disbale bomb UI
+				EmptyBar.SetActive(false);
+				PowerBar.SetActive(false);
+
 				StartTimer = true;
 			}
 		}
@@ -115,14 +124,20 @@ public class Pirate_Bomb : MonoBehaviour
 
 	public void StartThrow()
 	{
+		// Enable bomb throw UI
+		EmptyBar.gameObject.SetActive(true);
+		PowerBar.gameObject.SetActive(true);
+
+		// Initialise Bomb UI settings i.e scale
+
 		force = 0;
 		currentBomb = Instantiate(Bomb);
 		Current_ExplosionZone_Object = currentBomb.transform.GetChild(0).gameObject;
 		BombSpawned = true;
 
-		BoxCollider playerBox = transform.GetComponentInChildren<BoxCollider>();
+		CapsuleCollider playerBox = transform.GetComponentInChildren<CapsuleCollider>();
 		
-		currentBomb.transform.position = new Vector3(transform.position.x + (playerBox.size.x/2) + 0.1f, transform.position.y + (playerBox.size.y/2), transform.position.z);
+		currentBomb.transform.position = new Vector3(transform.position.x + (playerBox.radius) + 0.1f, transform.position.y + (playerBox.radius), transform.position.z);
 		currentBomb.transform.GetComponentInChildren<Rigidbody>().useGravity = false;
 	}
 	
