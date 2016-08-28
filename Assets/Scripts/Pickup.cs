@@ -47,7 +47,7 @@ public class Pickup : MonoBehaviour
 		if (collision.transform.tag == "Player")
 		{
 			player_controller = collision.transform.GetComponentInChildren<Player_Controller>();
-			player_controller.Pickup(PickUpNumber);
+			player_controller.Pickup(PickUpNumber, transform.position);
 
 			Destroy(this.gameObject);
 		}

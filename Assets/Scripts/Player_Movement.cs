@@ -30,8 +30,13 @@ public class Player_Movement : MonoBehaviour
 		CheckForInput();			// Check for player input
 		UpdatePosition();			// Update the players position
 
+		Debug.Log("Grounded = " + Grounded);
+
 		if (Grounded)
+		{
 			player_Animator.SetBool("Grounded", true);
+			player_Animator.ResetTrigger("Jump");
+		}
 		else
 			player_Animator.SetBool("Grounded", false);
 
@@ -140,6 +145,10 @@ public class Player_Movement : MonoBehaviour
 
 		player_Rigidbody.velocity = velocity;
 		Grounded = false;
+
+		player_Animator.SetTrigger("Jump");
+
+
 		if (!MovingLeft && ! MovingRight)
 		{
 			player_Animator.SetTrigger("IdleJump");
