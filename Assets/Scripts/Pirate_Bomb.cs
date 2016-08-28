@@ -28,7 +28,8 @@ public class Pirate_Bomb : MonoBehaviour
 		DestroyTimer = 2.0f;
 		MaxBarScale = PowerBar.transform.localScale.x;
 		PowerBar.transform.localScale = new Vector3(0, PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
-		rate = 1.2f * MaxBarScale;
+		rate = MaxBarScale / 1.2f;
+		Debug.Log("Max bar scale " + MaxBarScale);
 	}
 	
 	// Update is called once per frame
@@ -139,6 +140,7 @@ public class Pirate_Bomb : MonoBehaviour
 		// Initialise Bomb UI settings i.e scale
 
 		force = 200;
+		PowerBar.transform.localScale = new Vector3(0, PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
 		currentBomb = Instantiate(Bomb);
 		Current_ExplosionZone_Object = currentBomb.transform.GetChild(0).gameObject;
 		BombSpawned = true;
