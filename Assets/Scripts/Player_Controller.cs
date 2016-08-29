@@ -196,20 +196,6 @@ public class Player_Controller : MonoBehaviour
 					CurrentStatus = CharacterStatus.Wizard;
 			}				
 		}
-
-		// Change the player model/material
-		if (CurrentStatus == CharacterStatus.Wizard)
-		{
-			transform.GetComponent<Renderer>().material = Blue;
-		}
-		else if (CurrentStatus == CharacterStatus.Astronaut)
-		{
-			transform.GetComponent<Renderer>().material = Red;
-		}
-		else if (CurrentStatus == CharacterStatus.Pirate)
-		{
-			transform.GetComponent<Renderer>().material = Yellow;
-		}
 	}
 
 	public void Pickup(int pickUpNumber, Vector3 pickupPos)

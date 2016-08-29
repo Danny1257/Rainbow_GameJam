@@ -3,16 +3,44 @@ using System.Collections;
 
 public class PlatformMovement : MonoBehaviour 
 {
-
+	public bool HasBombTargetTrigger;
 	public float speed = 1;
 
 	private int direction = 1;
+	private bool BombTriggered;
+	private Vector3 InitialPlatformPos;
+
+	void Start()
+	{
+		BombTriggered = false;
+		InitialPlatformPos = transform.position;
+	}
 
 
 	// Update is called once per frame
 	void Update () 
 	{
-		transform.Translate (Vector3.left * speed * direction * Time.deltaTime);	
+		if (HasBombTargetTrigger)
+		{
+			if (BombTriggered)
+			{
+				transform.Translate (Vector3.left * speed * direction * Time.deltaTime);
+			}
+		}
+		else
+		{
+			transform.Translate (Vector3.left * speed * direction * Time.deltaTime);	
+		}
+	}
+
+	public void SetBombTriggered(bool state)
+	{
+		BombTriggered = state;
+	}
+
+	public void ResetPlatform()
+	{
+		transform.position = InitialPlatformPos;
 	}
 
 	void OnTriggerEnter(Collider other)

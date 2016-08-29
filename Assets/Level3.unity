@@ -1762,6 +1762,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11463046, guid: efd4341a099723c4880f1f0a08f1c35b, type: 2}
+      propertyPath: Platform
+      value: 
+      objectReference: {fileID: 1024967971}
+    - target: {fileID: 11463046, guid: efd4341a099723c4880f1f0a08f1c35b, type: 2}
+      propertyPath: StageOfLevel
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: efd4341a099723c4880f1f0a08f1c35b, type: 2}
   m_IsPrefabParent: 0
@@ -2113,6 +2121,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 383028266}
   m_RootOrder: 0
+--- !u!1 &1024967971 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 158938, guid: 0926cb2818012794b8aa51c687be4a18, type: 2}
+  m_PrefabInternal: {fileID: 1424426063}
 --- !u!1001 &1041132861
 Prefab:
   m_ObjectHideFlags: 0
@@ -2639,6 +2651,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 393802612}
   m_RootOrder: 0
+--- !u!1 &1312323731 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 179400, guid: efd4341a099723c4880f1f0a08f1c35b, type: 2}
+  m_PrefabInternal: {fileID: 743302340}
 --- !u!1 &1332315816
 GameObject:
   m_ObjectHideFlags: 0
@@ -2854,6 +2870,10 @@ Prefab:
     - target: {fileID: 420530, guid: 0926cb2818012794b8aa51c687be4a18, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11475206, guid: 0926cb2818012794b8aa51c687be4a18, type: 2}
+      propertyPath: HasBombTargetTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0926cb2818012794b8aa51c687be4a18, type: 2}
@@ -3194,7 +3214,8 @@ MonoBehaviour:
   EmptyBar: {fileID: 2115851791}
   PowerBar: {fileID: 2096444324}
   MaxForce: 500
-  BombTarget_List: []
+  BombTarget_List:
+  - {fileID: 1312323731}
 --- !u!114 &1481877473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3252,7 +3273,7 @@ MonoBehaviour:
   Red: {fileID: 2100000, guid: a7b8aa65b9bf938429a64474e91b04db, type: 2}
   Yellow: {fileID: 2100000, guid: 62cc58fa38a6a3043bc7c55b194291c9, type: 2}
   CheckPoints:
-  - {fileID: 0}
+  - {fileID: 883575062}
   - {fileID: 0}
   - {fileID: 0}
   PickUps_List: []
@@ -3275,7 +3296,9 @@ TrailRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -3977,7 +4000,9 @@ ParticleSystemRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -5122,7 +5147,9 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -5873,7 +5900,9 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -5987,7 +6016,9 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
