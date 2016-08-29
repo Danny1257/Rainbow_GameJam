@@ -2306,6 +2306,62 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 666ead33e276e714fbb411c0ce204e33, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &443709448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 443709449}
+  - 212: {fileID: 443709450}
+  m_Layer: 0
+  m_Name: BombUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &443709449
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 443709448}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .58276099, y: 4.47353315, z: 0}
+  m_LocalScale: {x: .293778718, y: .293778628, z: .293778628}
+  m_Children: []
+  m_Father: {fileID: 2007503213}
+  m_RootOrder: 1
+--- !u!212 &443709450
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 443709448}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 0
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 1f0b4f69c4359fc4ead9507e909c2e8e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &453827388
 GameObject:
   m_ObjectHideFlags: 0
@@ -4150,6 +4206,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1608217298}
   m_RootOrder: 24
+--- !u!1 &1249561852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1249561853}
+  - 212: {fileID: 1249561854}
+  m_Layer: 0
+  m_Name: PowerBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1249561853
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1249561852}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.683885217, y: 4.47353315, z: 0}
+  m_LocalScale: {x: .293778628, y: .293778628, z: .293778628}
+  m_Children: []
+  m_Father: {fileID: 2007503213}
+  m_RootOrder: 2
+--- !u!212 &1249561854
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1249561852}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 0
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: fe0bf4f90e4772e49b638aa68a68f760, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1256715073
 GameObject:
   m_ObjectHideFlags: 0
@@ -6624,6 +6736,8 @@ Transform:
   m_LocalScale: {x: .583431482, y: .583431482, z: .583431482}
   m_Children:
   - {fileID: 66715932}
+  - {fileID: 443709449}
+  - {fileID: 1249561853}
   m_Father: {fileID: 0}
   m_RootOrder: 16
 --- !u!114 &2007503214
@@ -6639,7 +6753,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AimObject: {fileID: 0}
   Bomb: {fileID: 171914, guid: cb773b9622752164984a8275e676bee3, type: 2}
-  MaxForce: 300
+  EmptyBar: {fileID: 443709448}
+  PowerBar: {fileID: 1249561852}
+  MaxForce: 500
+  BombTarget_List: []
 --- !u!114 &2007503215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6653,6 +6770,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlyPower: 3
   my_particleSystem: {fileID: 35935929}
+  EmptyBar: {fileID: 443709448}
+  PowerBar: {fileID: 1249561852}
 --- !u!114 &2007503216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6709,7 +6828,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: .589999974
-  m_Height: 3.07999992
+  m_Height: 2.71000004
   m_Direction: 1
   m_Center: {x: 0, y: 1.25999999, z: 0}
 --- !u!96 &2007503220

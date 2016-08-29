@@ -145,7 +145,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 454018, guid: a5e509e013ceaf34386f82b60e7d03e8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -10.8400002
+      value: 4.63000011
       objectReference: {fileID: 0}
     - target: {fileID: 454018, guid: a5e509e013ceaf34386f82b60e7d03e8, type: 2}
       propertyPath: m_LocalPosition.y
@@ -479,7 +479,9 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -642,7 +644,9 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -3363,6 +3367,10 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 428136, guid: 549bfccab400f054b9d50f8e5fa68c5a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .0160000008
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 549bfccab400f054b9d50f8e5fa68c5a, type: 2}
   m_IsPrefabParent: 0
@@ -3667,7 +3675,7 @@ GameObject:
   - 65: {fileID: 1246820470}
   m_Layer: 0
   m_Name: MovePlatform
-  m_TagString: Platform
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3838,7 +3846,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1318930688
 Transform:
   m_ObjectHideFlags: 0
@@ -3869,7 +3877,9 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -4056,7 +4066,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 454018, guid: a5e509e013ceaf34386f82b60e7d03e8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -7.9000001
+      value: 65.4100037
       objectReference: {fileID: 0}
     - target: {fileID: 454018, guid: a5e509e013ceaf34386f82b60e7d03e8, type: 2}
       propertyPath: m_LocalPosition.y
@@ -4270,7 +4280,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 454018, guid: a5e509e013ceaf34386f82b60e7d03e8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -9.47000027
+      value: 25.9400005
       objectReference: {fileID: 0}
     - target: {fileID: 454018, guid: a5e509e013ceaf34386f82b60e7d03e8, type: 2}
       propertyPath: m_LocalPosition.y
@@ -4298,7 +4308,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 454018, guid: a5e509e013ceaf34386f82b60e7d03e8, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11444786, guid: a5e509e013ceaf34386f82b60e7d03e8, type: 2}
       propertyPath: PickUpNumber
@@ -4833,7 +4843,7 @@ Transform:
   - {fileID: 1318930688}
   - {fileID: 1247835248}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!114 &1763456317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4850,6 +4860,8 @@ MonoBehaviour:
   EmptyBar: {fileID: 2129454490}
   PowerBar: {fileID: 1318930687}
   MaxForce: 500
+  BombTarget_List:
+  - {fileID: 0}
 --- !u!114 &1763456318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4863,6 +4875,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlyPower: 3
   my_particleSystem: {fileID: 1832951782}
+  EmptyBar: {fileID: 2129454490}
+  PowerBar: {fileID: 1318930687}
 --- !u!114 &1763456319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4922,7 +4936,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: .589999974
-  m_Height: 3.07999992
+  m_Height: 2.71000004
   m_Direction: 1
   m_Center: {x: 0, y: 1.25999999, z: 0}
 --- !u!96 &1763456323
@@ -4943,7 +4957,9 @@ TrailRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -5229,7 +5245,9 @@ ParticleSystemRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -6803,6 +6821,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlyPower: 3
   my_particleSystem: {fileID: 0}
+  EmptyBar: {fileID: 0}
+  PowerBar: {fileID: 0}
 --- !u!114 &1978544065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6820,6 +6840,7 @@ MonoBehaviour:
   EmptyBar: {fileID: 0}
   PowerBar: {fileID: 0}
   MaxForce: 300
+  BombTarget_List: []
 --- !u!96 &1978544066
 TrailRenderer:
   m_ObjectHideFlags: 0
@@ -6839,7 +6860,9 @@ TrailRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -7129,7 +7152,9 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -7237,7 +7262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2129454491
 Transform:
   m_ObjectHideFlags: 0
@@ -7268,7 +7293,9 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}

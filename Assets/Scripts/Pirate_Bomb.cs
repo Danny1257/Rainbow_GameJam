@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Pirate_Bomb : MonoBehaviour 
 {
 	public GameObject AimObject, Bomb, EmptyBar, PowerBar;
 	public float MaxForce;
+	public List<GameObject> BombTarget_List = new List<GameObject>();
 
 
 	private Rigidbody body;
@@ -27,7 +29,7 @@ public class Pirate_Bomb : MonoBehaviour
 		force = 200.0f;
 		DestroyTimer = 2.0f;
 		MaxBarScale = PowerBar.transform.localScale.x;
-		PowerBar.transform.localScale = new Vector3(0, PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
+		//PowerBar.transform.localScale = new Vector3(0, PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
 		rate = MaxBarScale / 1.2f;
 		Debug.Log("Max bar scale " + MaxBarScale);
 	}
@@ -101,7 +103,8 @@ public class Pirate_Bomb : MonoBehaviour
 
 				if (explosion_zone.GetBombInTargetZone())
 				{
-					Debug.Log ("The explosion hit! Target Aactive!");
+					Debug.Log ("The explosion hit! Target Active!");
+					SuccesfulExplosion();
 				}
 				else 
 				{
@@ -112,6 +115,30 @@ public class Pirate_Bomb : MonoBehaviour
 				BombReady = true;
 				StartTimer = false;
 				DestroyTimer = 2.0f;
+			}
+		}
+	}
+
+
+	private void SuccesfulExplosion()
+	{
+		GameObject bombTarget = explosion_zone.GetLastHitTarget();
+		bombTarget.GetComponentInChildren<Renderer>().enabled = false;
+		bombTarget.GetComponentInChildren<SphereCollider>().enabled = false;
+	}
+
+	public void Death(int activeCheckpoint)
+	{
+		for (int n = 0; n < BombTarget_List.Count; n++)
+		{
+			BombTargetController target_Controller = BombTarget_List[n].transform.GetComponentInChildren<BombTargetController>();
+			if (target_Controller.StageOfLevel > activeCheckpoint)
+			{
+				Debug.Log("Reset the bomb target");
+				BombTarget_List[n].transform.GetComponentInChildren<Renderer>().enabled = true;
+				BombTarget_List[n].transform.GetComponentInChildren<SphereCollider>().enabled = true;
+
+				// Also reset the result of the target i.e moving back a platform etc
 			}
 		}
 	}

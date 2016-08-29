@@ -283,5 +283,10 @@ public class Player_Controller : MonoBehaviour
 			GameObject newPickup = Instantiate(PickUpObject);
 			newPickup.transform.position = LastPickUpPos;
 		}
+
+		if (PersonalitiesList.Contains(CharacterStatus.Pirate))
+		{
+			pirate_bomb.Death(ActiveCheckpoint);
+		}
 	}
 }
