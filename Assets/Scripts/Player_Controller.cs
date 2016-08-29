@@ -10,6 +10,7 @@ public class Player_Controller : MonoBehaviour
 	public List<GameObject> CheckPoints = new List<GameObject>();
 	public List<GameObject> PickUps_List = new List<GameObject>();
 	public GameObject PickUpObject;
+	public ParticleSystem CharacterTransformSystem;
 
 	// Private Members
 	private enum CharacterStatus{ Default, Wizard, Astronaut, Pirate };
@@ -93,6 +94,10 @@ public class Player_Controller : MonoBehaviour
 		if (PersonalitiesList.Count > 1)
 		{
 			CheckForPersonalityChange();
+			if (CurrentStatus != CharacterStatus.Wizard)
+				wizard_teleport.SetPointLight(false);
+			else
+				wizard_teleport.SetPointLight(true);
 		}
 
 		if (Input.GetMouseButtonDown(0))
@@ -170,6 +175,8 @@ public class Player_Controller : MonoBehaviour
 				else
 					CurrentStatus = CharacterStatus.Astronaut;
 			}
+
+			CharacterTransformSystem.Play();
 				
 		}
 		else if (Input.GetAxis("Mouse ScrollWheel") < 0)

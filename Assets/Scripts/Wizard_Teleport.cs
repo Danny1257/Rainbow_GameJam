@@ -146,6 +146,11 @@ public class Wizard_Teleport : MonoBehaviour
 		return false;
 	}
 
+	public void SetPointLight(bool State)
+	{
+		wizard_Light.enabled = State;
+	}
+
 	public bool GetTeleportReady()
 	{
 		return TeleportReady;
