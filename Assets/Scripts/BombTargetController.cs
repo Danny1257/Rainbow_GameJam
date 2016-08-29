@@ -4,6 +4,7 @@ using System.Collections;
 public class BombTargetController : MonoBehaviour 
 {
 	public int StageOfLevel;
+	public GameObject Platform;
 
 	// Use this for initialization
 	void Start () {
