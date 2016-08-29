@@ -34,6 +34,8 @@ public class Disappear_Platform : MonoBehaviour {
 		{
 			platform1.GetComponentInChildren<Renderer>().enabled = true;
 			platform1_collider.enabled = true;
+
+			platform1.transform.GetChild(0).GetComponentInChildren<BoxCollider>().enabled = true;
 			timer = 5;
 		}
 
@@ -41,6 +43,8 @@ public class Disappear_Platform : MonoBehaviour {
 		{
 			platform2.GetComponentInChildren<Renderer>().enabled = true;
 			platform2_collider.enabled = true;
+
+			platform2.transform.GetChild(0).GetComponentInChildren<BoxCollider>().enabled = true;
 		}
 
 		if (timer <= 0.5) 

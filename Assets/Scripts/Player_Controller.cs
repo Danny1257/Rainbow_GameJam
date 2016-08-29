@@ -201,9 +201,9 @@ public class Player_Controller : MonoBehaviour
 		{
 			if (Application.loadedLevelName == "Scene")
 			{
-				if (!PersonalitiesList.Contains(CharacterStatus.Astronaut))
-					PersonalitiesList.Add(CharacterStatus.Astronaut);
-				CurrentStatus = CharacterStatus.Astronaut;
+				if (!PersonalitiesList.Contains(CharacterStatus.Pirate))
+					PersonalitiesList.Add(CharacterStatus.Pirate);
+				CurrentStatus = CharacterStatus.Pirate;
 			}
 			else if (Application.loadedLevelName == "Level2")
 			{
@@ -282,6 +282,11 @@ public class Player_Controller : MonoBehaviour
 			NumOfPickups--;
 			GameObject newPickup = Instantiate(PickUpObject);
 			newPickup.transform.position = LastPickUpPos;
+		}
+
+		if (PersonalitiesList.Contains(CharacterStatus.Pirate))
+		{
+			pirate_bomb.Death(ActiveCheckpoint);
 		}
 	}
 }

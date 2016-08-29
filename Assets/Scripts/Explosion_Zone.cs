@@ -4,6 +4,7 @@ using System.Collections;
 public class Explosion_Zone : MonoBehaviour {
 
 	private bool BombInTargetZone;
+	private GameObject LastHitTarget;
 
 	// Use this for initialization
 	void Start () 
@@ -22,11 +23,17 @@ public class Explosion_Zone : MonoBehaviour {
 		return BombInTargetZone;
 	}
 
+	public GameObject GetLastHitTarget()
+	{
+		return LastHitTarget;
+	}
+
 	void OnTriggerEnter(Collider collider)
 	{
 		if (collider.tag == "BombTarget")
 		{
 			Debug.Log ("Bomb hit the target!");
+			LastHitTarget = collider.gameObject;
 			BombInTargetZone = true;
 		}
 	}
@@ -34,7 +41,10 @@ public class Explosion_Zone : MonoBehaviour {
 	void OnTriggerStay(Collider collider)
 	{
 		if (collider.tag == "BombTarget")
+		{
 			BombInTargetZone = true;
+			LastHitTarget = collider.gameObject;
+		}
 	}
 
 	void OnTriggerExit(Collider collider)
