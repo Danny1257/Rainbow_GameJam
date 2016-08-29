@@ -27,7 +27,7 @@ public class Pirate_Bomb : MonoBehaviour
 		force = 200.0f;
 		DestroyTimer = 2.0f;
 		MaxBarScale = PowerBar.transform.localScale.x;
-		PowerBar.transform.localScale = new Vector3(0, PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
+		//PowerBar.transform.localScale = new Vector3(0, PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
 		rate = MaxBarScale / 1.2f;
 		Debug.Log("Max bar scale " + MaxBarScale);
 	}

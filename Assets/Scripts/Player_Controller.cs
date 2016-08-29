@@ -201,9 +201,9 @@ public class Player_Controller : MonoBehaviour
 		{
 			if (Application.loadedLevelName == "Scene")
 			{
-				if (!PersonalitiesList.Contains(CharacterStatus.Pirate))
-					PersonalitiesList.Add(CharacterStatus.Pirate);
-				CurrentStatus = CharacterStatus.Pirate;
+				if (!PersonalitiesList.Contains(CharacterStatus.Astronaut))
+					PersonalitiesList.Add(CharacterStatus.Astronaut);
+				CurrentStatus = CharacterStatus.Astronaut;
 			}
 			else if (Application.loadedLevelName == "Level2")
 			{

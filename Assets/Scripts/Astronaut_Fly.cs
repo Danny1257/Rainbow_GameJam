@@ -6,10 +6,11 @@ public class Astronaut_Fly : MonoBehaviour
 	// public members
 	public float FlyPower;
 	public ParticleSystem my_particleSystem;
+	public GameObject EmptyBar, PowerBar;
 
 	//private members
 	private bool FlyReady, RechargeTheTimer, Flying;
-	private float RechargeTimer, FuelLeft;
+	private float RechargeTimer, FuelLeft, MaxBarScale, rate, fuelRate;
 
 
 	// Use this for initialization
@@ -21,6 +22,9 @@ public class Astronaut_Fly : MonoBehaviour
 		FuelLeft = 100;
 		Flying = false;
 		my_particleSystem.Stop();
+		MaxBarScale = PowerBar.transform.localScale.x;
+		fuelRate = 100/2.5f;
+		rate = MaxBarScale / 2.5f;		
 	}
 	
 	// Update is called once per frame
@@ -28,7 +32,10 @@ public class Astronaut_Fly : MonoBehaviour
 	{
 		if (FuelLeft < 100 && RechargeTheTimer == false && !Flying)
 		{
-			FuelLeft += Time.deltaTime * (100/3);
+			FuelLeft += (fuelRate * Time.deltaTime);
+
+			PowerBar.transform.localScale = new Vector3(PowerBar.transform.localScale.x + (rate * Time.deltaTime), PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
+
 			FlyReady = true;
 		}
 
@@ -47,12 +54,20 @@ public class Astronaut_Fly : MonoBehaviour
 
 	public void Fly()
 	{
+		EmptyBar.SetActive(true);
+		PowerBar.SetActive(true);
 		if (FlyReady)
 		{
 			if (!my_particleSystem.isPlaying)
 				my_particleSystem.Play();
 			Flying = true;
-			FuelLeft -= Time.deltaTime * (100/3);
+
+			FuelLeft -= (fuelRate * Time.deltaTime);
+
+			//FuelLeft -= Time.deltaTime * (100/3);
+
+			// Reduce fuel bar
+			PowerBar.transform.localScale = new Vector3(PowerBar.transform.localScale.x - (rate * Time.deltaTime), PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
 
 			Rigidbody body = transform.GetComponentInChildren<Rigidbody>();
 
