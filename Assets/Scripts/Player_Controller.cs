@@ -40,6 +40,27 @@ public class Player_Controller : MonoBehaviour
 				PersonalitiesList.Add(CharacterStatus.Wizard);
 			CurrentStatus = CharacterStatus.Wizard;
 		}
+		else if (Application.loadedLevelName == "Level3")
+		{
+			if (!PersonalitiesList.Contains(CharacterStatus.Wizard))
+				PersonalitiesList.Add(CharacterStatus.Wizard);
+
+			if (!PersonalitiesList.Contains(CharacterStatus.Pirate))
+				PersonalitiesList.Add (CharacterStatus.Pirate);
+			CurrentStatus = CharacterStatus.Pirate;
+		}
+		else if (Application.loadedLevelName == "Level4")
+		{
+			if (!PersonalitiesList.Contains(CharacterStatus.Wizard))
+				PersonalitiesList.Add(CharacterStatus.Wizard);
+			
+			if (!PersonalitiesList.Contains(CharacterStatus.Pirate))
+				PersonalitiesList.Add (CharacterStatus.Pirate);
+
+			if (!PersonalitiesList.Contains(CharacterStatus.Astronaut))
+				PersonalitiesList.Add (CharacterStatus.Astronaut);
+			CurrentStatus = CharacterStatus.Astronaut;
+		}
 	}
 	
 	// Update is called once per frame
