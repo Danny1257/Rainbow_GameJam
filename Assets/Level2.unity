@@ -3802,7 +3802,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1011807354}
   m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 0, y: -.239999995, z: 0}
+  m_LocalPosition: {x: 0, y: -.239999995, z: -.600000024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2007503213}
@@ -3851,18 +3851,18 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1011807354}
-  lengthInSec: 5
+  lengthInSec: 1
   startDelay: 0
   speed: 1
   randomSeed: 0
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   moveWithTransform: 1
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 5
+      scalar: .5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3895,7 +3895,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: 5
+      scalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4097,7 +4097,7 @@ ParticleSystem:
     radius: 1
     angle: 25
     length: 5
-    boxX: 3.71000004
+    boxX: 2.71000004
     boxY: 3.61999989
     boxZ: 1.38999999
     arc: 360
@@ -4108,7 +4108,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 10
+      scalar: 30
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5662,6 +5662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f893c07898c5974a9e201371462e332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HasBombTargetTrigger: 0
   speed: 4
 --- !u!65 &1281296465
 BoxCollider:
@@ -5975,6 +5976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f893c07898c5974a9e201371462e332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HasBombTargetTrigger: 0
   speed: 4
 --- !u!65 &1344773901
 BoxCollider:
@@ -7941,6 +7943,7 @@ MonoBehaviour:
   - {fileID: 1027442100}
   PickUps_List: []
   PickUpObject: {fileID: 176904, guid: a5e509e013ceaf34386f82b60e7d03e8, type: 2}
+  CharacterTransformSystem: {fileID: 1011807357}
 --- !u!136 &2007503219
 CapsuleCollider:
   m_ObjectHideFlags: 0

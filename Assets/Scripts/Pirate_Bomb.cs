@@ -125,6 +125,9 @@ public class Pirate_Bomb : MonoBehaviour
 		GameObject bombTarget = explosion_zone.GetLastHitTarget();
 		bombTarget.GetComponentInChildren<Renderer>().enabled = false;
 		bombTarget.GetComponentInChildren<SphereCollider>().enabled = false;
+
+		PlatformMovement TriggerPlatform = bombTarget.GetComponentInChildren<BombTargetController>().Platform.GetComponentInChildren<PlatformMovement>();
+		TriggerPlatform.SetBombTriggered(true);
 	}
 
 	public void Death(int activeCheckpoint)
@@ -139,6 +142,10 @@ public class Pirate_Bomb : MonoBehaviour
 				BombTarget_List[n].transform.GetComponentInChildren<SphereCollider>().enabled = true;
 
 				// Also reset the result of the target i.e moving back a platform etc
+				PlatformMovement TriggerPlatform = BombTarget_List[n].transform.GetComponentInChildren<BombTargetController>().Platform.GetComponentInChildren<PlatformMovement>();
+				TriggerPlatform.SetBombTriggered(false);
+				TriggerPlatform.ResetPlatform();
+
 			}
 		}
 	}
