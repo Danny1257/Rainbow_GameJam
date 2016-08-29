@@ -4,6 +4,7 @@ using System.Collections;
 public class Wizard_Teleport : MonoBehaviour 
 {
 	public float dashDistance;
+	public Light wizard_Light;
 
 	private Player_Movement player_movement;
 	private float enableTimer, RechargeTimer;
@@ -17,6 +18,8 @@ public class Wizard_Teleport : MonoBehaviour
 		StartEnableTimer = false;
 		StartRechargeTimer = false;
 		TeleportReady = true;
+
+		wizard_Light.color = Color.blue;
 	}
 	
 	// Update is called once per frame
@@ -24,6 +27,7 @@ public class Wizard_Teleport : MonoBehaviour
 	{
 		if (StartEnableTimer)
 		{
+			wizard_Light.color = Color.red;
 			enableTimer -= Time.deltaTime;
 
 			if (enableTimer <= 0)
@@ -44,10 +48,9 @@ public class Wizard_Teleport : MonoBehaviour
 				RechargeTimer = 2.0f;
 				StartRechargeTimer = false;
 				TeleportReady = true;
+				wizard_Light.color = Color.blue;
 			}
 		}
-
-
 	}
 
 	public void Teleport()
