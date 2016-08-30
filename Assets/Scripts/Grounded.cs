@@ -32,7 +32,7 @@ public class Grounded : MonoBehaviour {
 				}
 			}
 		} 
-		else {
+		if (parentPlatformScript2 != null){
 
 			if (parentPlatformScript2.GetPlatformColliderState (platform_number) == false) {
 				if (!playerOnPlatform) {
