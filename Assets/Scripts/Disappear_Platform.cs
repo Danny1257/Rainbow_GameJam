@@ -6,8 +6,10 @@ public class Disappear_Platform : MonoBehaviour {
 	public GameObject platform1;
 	public GameObject platform2;
 
+
 	private float timer = 5;
 	private BoxCollider platform1_collider, platform2_collider;
+
 
 	void Start()
 	{
@@ -20,6 +22,7 @@ public class Disappear_Platform : MonoBehaviour {
 	void Update () 
 	{
 		timer -= Time.deltaTime;
+
 
 		if (timer <= 2.5) 
 		{
@@ -53,6 +56,7 @@ public class Disappear_Platform : MonoBehaviour {
 			platform2_collider.enabled = false;
 		}	
 	}
+	
 
 	public bool GetPlatformColliderState(int platformNum)
 	{

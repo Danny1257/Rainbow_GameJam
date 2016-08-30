@@ -126,8 +126,20 @@ public class Pirate_Bomb : MonoBehaviour
 		bombTarget.GetComponentInChildren<Renderer>().enabled = false;
 		bombTarget.GetComponentInChildren<SphereCollider>().enabled = false;
 
-		PlatformMovement TriggerPlatform = bombTarget.GetComponentInChildren<BombTargetController>().Platform.GetComponentInChildren<PlatformMovement>();
-		TriggerPlatform.SetBombTriggered(true);
+		if (bombTarget.GetComponentInChildren<BombTargetController> ().Platform.GetComponentInChildren<PlatformMovement> () != null) {
+
+			PlatformMovement TriggerPlatform = bombTarget.GetComponentInChildren<BombTargetController> ().Platform.GetComponentInChildren<PlatformMovement> ();
+			TriggerPlatform.SetBombTriggered(true);
+
+		}
+
+		if (bombTarget.GetComponentInChildren<BombTargetController> ().Platform.GetComponentInChildren<Disappear_TarPlatform> () != null) {
+			Disappear_TarPlatform TriggerDisPlatform = bombTarget.GetComponentInChildren<BombTargetController> ().Platform.GetComponentInChildren<Disappear_TarPlatform> ();
+			TriggerDisPlatform.SetBombTriggered (true);
+
+		}
+
+
 	}
 
 	public void Death(int activeCheckpoint)
@@ -141,10 +153,19 @@ public class Pirate_Bomb : MonoBehaviour
 				BombTarget_List[n].transform.GetComponentInChildren<Renderer>().enabled = true;
 				BombTarget_List[n].transform.GetComponentInChildren<SphereCollider>().enabled = true;
 
+
+				if (BombTarget_List[n].transform.GetComponentInChildren<BombTargetController>().Platform.GetComponentInChildren<PlatformMovement>() != null){
 				// Also reset the result of the target i.e moving back a platform etc
 				PlatformMovement TriggerPlatform = BombTarget_List[n].transform.GetComponentInChildren<BombTargetController>().Platform.GetComponentInChildren<PlatformMovement>();
 				TriggerPlatform.SetBombTriggered(false);
 				TriggerPlatform.ResetPlatform();
+				}
+
+				if (BombTarget_List[n].transform.GetComponentInChildren<BombTargetController>().Platform.GetComponentInChildren<Disappear_TarPlatform>() != null){
+				Disappear_TarPlatform TriggerDisPlatform = BombTarget_List[n].transform.GetComponentInChildren<BombTargetController>().Platform.GetComponentInChildren<Disappear_TarPlatform>();
+				TriggerDisPlatform.SetBombTriggered(false);
+				TriggerDisPlatform.ResetPlatform();
+				}
 
 			}
 		}

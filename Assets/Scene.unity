@@ -177,7 +177,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11444786, guid: a5e509e013ceaf34386f82b60e7d03e8, type: 2}
       propertyPath: PickUpNumber
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a5e509e013ceaf34386f82b60e7d03e8, type: 2}
@@ -3864,6 +3864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f893c07898c5974a9e201371462e332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HasBombTargetTrigger: 0
   speed: 4
 --- !u!65 &1246820470
 BoxCollider:
@@ -4443,7 +4444,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11444786, guid: a5e509e013ceaf34386f82b60e7d03e8, type: 2}
       propertyPath: PickUpNumber
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 176904, guid: a5e509e013ceaf34386f82b60e7d03e8, type: 2}
       propertyPath: m_Name
@@ -5058,6 +5059,7 @@ MonoBehaviour:
   - {fileID: 1430725385}
   - {fileID: 1527636150}
   PickUpObject: {fileID: 176904, guid: a5e509e013ceaf34386f82b60e7d03e8, type: 2}
+  CharacterTransformSystem: {fileID: 0}
 --- !u!136 &1763456322
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6907,6 +6909,7 @@ MonoBehaviour:
   - {fileID: 295241401}
   PickUps_List: []
   PickUpObject: {fileID: 0}
+  CharacterTransformSystem: {fileID: 0}
 --- !u!114 &1978544062
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class Grounded : MonoBehaviour {
 	public int platform_number;
 
 	public Disappear_Platform parentPlatformScript;
+	public Disappear_TarPlatform parentPlatformScript2;
 	private GameObject Player;
 	private Player_Movement playerMovement;
 	private bool playerOnPlatform;
@@ -19,17 +20,29 @@ public class Grounded : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (parentPlatformScript.GetPlatformColliderState(platform_number) == false)
-		{
-			if (!playerOnPlatform)
-			{
-				transform.GetComponentInChildren<BoxCollider>().enabled = false;
+
+		if (parentPlatformScript != null) {
+
+			if (parentPlatformScript.GetPlatformColliderState (platform_number) == false) {
+				if (!playerOnPlatform) {
+					transform.GetComponentInChildren<BoxCollider> ().enabled = false;
+				} else {
+					transform.GetComponentInChildren<BoxCollider> ().enabled = false;
+					playerMovement.SetGrounded (false);
+				}
 			}
-			else
-			{
-				transform.GetComponentInChildren<BoxCollider>().enabled = false;
-				playerMovement.SetGrounded(false);
+		} 
+		else {
+
+			if (parentPlatformScript2.GetPlatformColliderState (platform_number) == false) {
+				if (!playerOnPlatform) {
+					transform.GetComponentInChildren<BoxCollider> ().enabled = false;
+				} else {
+					transform.GetComponentInChildren<BoxCollider> ().enabled = false;
+					playerMovement.SetGrounded (false);
+				}
 			}
+
 		}
 	}
 
@@ -50,14 +63,29 @@ public class Grounded : MonoBehaviour {
 		if (collider.tag == "Player")
 		{
 			playerOnPlatform = true;
-			if (parentPlatformScript.GetPlatformColliderState(platform_number) == false)
-			{
-				Debug.Log("Set grounded to false");
-				transform.GetComponentInChildren<BoxCollider>().enabled = false;
-				playerMovement.SetGrounded(false);
-				playerOnPlatform = false;
 
+			if (parentPlatformScript != null){
+				if (parentPlatformScript.GetPlatformColliderState(platform_number) == false)
+				{
+					Debug.Log("Set grounded to false");
+					transform.GetComponentInChildren<BoxCollider>().enabled = false;
+					playerMovement.SetGrounded(false);
+					playerOnPlatform = false;
+
+				}
 			}
+
+			if (parentPlatformScript2 != null){
+				if (parentPlatformScript2.GetPlatformColliderState(platform_number) == false)
+				{
+					Debug.Log("Set grounded to false");
+					transform.GetComponentInChildren<BoxCollider>().enabled = false;
+					playerMovement.SetGrounded(false);
+					playerOnPlatform = false;
+					
+				}
+			}
+
 		}
 	}
 
