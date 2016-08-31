@@ -23,6 +23,7 @@ public class Player_Controller : MonoBehaviour
 	private int ActiveCheckpoint;
 	private int NumOfPickups;
 	private Vector3 LastPickUpPos;
+	private Character_Swap characterSwap;
 	
 	// Use this for initialization
 	void Start ()
@@ -177,6 +178,8 @@ public class Player_Controller : MonoBehaviour
 			}
 
 			CharacterTransformSystem.Play();
+
+			characterSwap.PersonalityChange();
 				
 		}
 		else if (Input.GetAxis("Mouse ScrollWheel") < 0)
@@ -201,7 +204,9 @@ public class Player_Controller : MonoBehaviour
 					CurrentStatus = CharacterStatus.Astronaut;
 				else 
 					CurrentStatus = CharacterStatus.Wizard;
-			}				
+			}
+
+			characterSwap.PersonalityChange();
 		}
 	}
 
