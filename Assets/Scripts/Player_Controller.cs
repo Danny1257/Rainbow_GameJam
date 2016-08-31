@@ -13,7 +13,7 @@ public class Player_Controller : MonoBehaviour
 	public ParticleSystem CharacterTransformSystem;
 
 	// Private Members
-	private enum CharacterStatus{ Default, Wizard, Astronaut, Pirate };
+	public enum CharacterStatus{ Default, Wizard, Astronaut, Pirate };
 	private CharacterStatus CurrentStatus;
 	private List<CharacterStatus> PersonalitiesList = new List<CharacterStatus>();
 
@@ -278,6 +278,11 @@ public class Player_Controller : MonoBehaviour
 			if (NumOfPickups == 3)
 				ActiveCheckpoint = 3;
 		}
+	}
+
+	public CharacterStatus GetCurrentStatus()
+	{
+		return CurrentStatus;
 	}
 
 	public int GetNumOfPickups()
