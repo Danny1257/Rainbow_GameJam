@@ -35,6 +35,7 @@ public class Player_Controller : MonoBehaviour
 		NumOfPickups = 0;
 		ActiveCheckpoint = 0;
 		LastPickUpPos = new Vector3(0, 0, 0);
+		characterSwap = transform.GetComponentInChildren<Character_Swap> ();
 
 		if (Application.loadedLevelName == "Level2")
 		{
