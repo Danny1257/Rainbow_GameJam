@@ -13,7 +13,7 @@ public class Player_Controller : MonoBehaviour
 	public ParticleSystem CharacterTransformSystem;
 
 	// Private Members
-	private enum CharacterStatus{ Default, Wizard, Astronaut, Pirate };
+	public enum CharacterStatus{ Default, Wizard, Astronaut, Pirate };
 	private CharacterStatus CurrentStatus;
 	private List<CharacterStatus> PersonalitiesList = new List<CharacterStatus>();
 
@@ -23,6 +23,7 @@ public class Player_Controller : MonoBehaviour
 	private int ActiveCheckpoint;
 	private int NumOfPickups;
 	private Vector3 LastPickUpPos;
+	private Character_Swap characterSwap;
 	
 	// Use this for initialization
 	void Start ()
@@ -34,6 +35,7 @@ public class Player_Controller : MonoBehaviour
 		NumOfPickups = 0;
 		ActiveCheckpoint = 0;
 		LastPickUpPos = new Vector3(0, 0, 0);
+		characterSwap = transform.GetComponentInChildren<Character_Swap> ();
 
 		if (Application.loadedLevelName == "Level2")
 		{
@@ -177,6 +179,8 @@ public class Player_Controller : MonoBehaviour
 			}
 
 			CharacterTransformSystem.Play();
+
+			characterSwap.PersonalityChange();
 				
 		}
 		else if (Input.GetAxis("Mouse ScrollWheel") < 0)
@@ -201,7 +205,9 @@ public class Player_Controller : MonoBehaviour
 					CurrentStatus = CharacterStatus.Astronaut;
 				else 
 					CurrentStatus = CharacterStatus.Wizard;
-			}				
+			}
+
+			characterSwap.PersonalityChange();
 		}
 	}
 
@@ -272,6 +278,11 @@ public class Player_Controller : MonoBehaviour
 			if (NumOfPickups == 3)
 				ActiveCheckpoint = 3;
 		}
+	}
+
+	public CharacterStatus GetCurrentStatus()
+	{
+		return CurrentStatus;
 	}
 
 	public int GetNumOfPickups()

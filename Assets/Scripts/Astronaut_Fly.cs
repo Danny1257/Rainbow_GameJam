@@ -30,6 +30,8 @@ public class Astronaut_Fly : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+
+
 		if (FuelLeft < 100 && RechargeTheTimer == false && !Flying)
 		{
 			FuelLeft += (fuelRate * Time.deltaTime);
@@ -38,6 +40,8 @@ public class Astronaut_Fly : MonoBehaviour
 
 			FlyReady = true;
 		}
+
+		PowerBar.transform.localScale = new Vector3 (PowerBar.transform.localScale.x + (rate * Time.deltaTime), PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
 
 
 		if (RechargeTheTimer)
