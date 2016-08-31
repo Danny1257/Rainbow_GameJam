@@ -207,6 +207,7 @@ public class Player_Controller : MonoBehaviour
 					CurrentStatus = CharacterStatus.Wizard;
 			}
 
+			CharacterTransformSystem.Play();
 			characterSwap.PersonalityChange();
 		}
 	}

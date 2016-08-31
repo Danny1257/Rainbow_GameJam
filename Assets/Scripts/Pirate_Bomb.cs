@@ -139,6 +139,11 @@ public class Pirate_Bomb : MonoBehaviour
 
 		}
 
+		if (bombTarget.GetComponentInChildren<BombTargetController> ().Platform.GetComponentInChildren<MoveablePlatform> () != null) {
+			MoveablePlatform moveablePlatform = bombTarget.GetComponentInChildren<BombTargetController>().Platform.GetComponentInChildren<MoveablePlatform>();
+			moveablePlatform.SetBombTrigger(true);
+		}
+
 
 	}
 
