@@ -25,6 +25,7 @@ public class Wizard_Teleport : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+
 		if (StartEnableTimer)
 		{
 			wizard_Light.color = Color.red;
@@ -148,7 +149,10 @@ public class Wizard_Teleport : MonoBehaviour
 
 	public void SetPointLight(bool State)
 	{
+		//wizard_Light = transform.FindChild ("Point light").transform.GetComponent<Light> ();
+		wizard_Light.transform.gameObject.SetActive (State);
 		wizard_Light.enabled = State;
+
 	}
 
 	public bool GetTeleportReady()

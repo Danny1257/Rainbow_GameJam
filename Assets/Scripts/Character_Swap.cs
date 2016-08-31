@@ -4,11 +4,12 @@ using System.Collections;
 public class Character_Swap : MonoBehaviour {
 
 	public RuntimeAnimatorController Wizard_animator, Pirate_Animator, Astronaut_Animator;
+	public Avatar Wizard_Avatar, Pirate_Avatar, Astronaut_Avatar;
 	public GameObject WizardMesh_Object, PirateMesh_Object, AstronautMesh_Object;
 
 
 	public GameObject currentMeshObject;
-	private RuntimeAnimatorController currentPlayerAnimator;
+	private Animator currentPlayerAnimator;
 	private Player_Controller playerController;
 	private bool NeedChange;
 
@@ -16,7 +17,7 @@ public class Character_Swap : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		currentPlayerAnimator = transform.GetComponentInChildren<Animator> ().runtimeAnimatorController;
+		currentPlayerAnimator = transform.GetComponentInChildren<Animator> ();
 		playerController = transform.GetComponentInChildren<Player_Controller> ();
 		NeedChange = false;
 	}
@@ -35,7 +36,9 @@ public class Character_Swap : MonoBehaviour {
 				Destroy (currentMeshObject);
 				currentMeshObject = wizard_Object;
 
-				currentPlayerAnimator = Wizard_animator;
+				currentPlayerAnimator.runtimeAnimatorController = Wizard_animator;
+				currentPlayerAnimator.avatar = Wizard_Avatar;
+
 			} 
 			else if (playerController.GetCurrentStatus () == Player_Controller.CharacterStatus.Pirate) 
 			{
@@ -46,7 +49,8 @@ public class Character_Swap : MonoBehaviour {
 				Destroy (currentMeshObject);
 				currentMeshObject = pirate_Object;
 			
-				currentPlayerAnimator = Pirate_Animator;
+				currentPlayerAnimator.runtimeAnimatorController = Pirate_Animator;
+				currentPlayerAnimator.avatar = Pirate_Avatar;
 			} 
 			else if (playerController.GetCurrentStatus () == Player_Controller.CharacterStatus.Astronaut) 
 			{
@@ -57,7 +61,8 @@ public class Character_Swap : MonoBehaviour {
 				Destroy (currentMeshObject);
 				currentMeshObject = astronaut_Object;
 
-				currentPlayerAnimator = Astronaut_Animator;
+				currentPlayerAnimator.runtimeAnimatorController = Astronaut_Animator;
+				currentPlayerAnimator.avatar = Astronaut_Avatar;
 			}
 
 			NeedChange = false;
