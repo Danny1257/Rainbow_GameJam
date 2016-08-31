@@ -32,6 +32,12 @@ public class MoveablePlatform : MonoBehaviour {
 
 	public void SetBombTrigger(bool state)
 	{
-		BombTriggered = true;
+		BombTriggered = state;
+	}
+
+	public void ResetPlatform()
+	{
+		transform.position = StartPos;
+		BombTriggered = false;
 	}
 }

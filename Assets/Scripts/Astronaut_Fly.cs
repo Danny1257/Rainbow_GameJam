@@ -106,7 +106,7 @@ public class Astronaut_Fly : MonoBehaviour
 
 	public void StopParticles()
 	{
-		my_particleSystem.Stop();
+		my_particleSystem.Stop ();
 	}
 
 	public void StartTimer()
