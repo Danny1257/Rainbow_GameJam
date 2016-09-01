@@ -166,8 +166,8 @@ MonoBehaviour:
   PirateMesh_Object: {fileID: 160618, guid: 2e91b69e493364bb6afdeb855c415ef9, type: 2}
   AstronautMesh_Object: {fileID: 136538, guid: db3f39bdf904c451285e36c59de77672, type: 2}
   currentMeshObject: {fileID: 193333164}
-  EmptyPowerBar: {fileID: 0}
-  PowerBar: {fileID: 0}
+  EmptyPowerBar: {fileID: 994639447}
+  PowerBar: {fileID: 2096010560}
 --- !u!136 &37270992
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -200,6 +200,7 @@ MonoBehaviour:
   BombTarget_List:
   - {fileID: 427922821}
   - {fileID: 1328258625}
+  ExplosionObject: {fileID: 194110, guid: a64b790524a7742d3b3c1320159f2f86, type: 2}
 --- !u!114 &37270994
 MonoBehaviour:
   m_ObjectHideFlags: 0
