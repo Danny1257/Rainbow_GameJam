@@ -2855,6 +2855,10 @@ Prefab:
       propertyPath: BombTarget_List.Array.data[3]
       value: 
       objectReference: {fileID: 1004148126}
+    - target: {fileID: 11462240, guid: 2e91b69e493364bb6afdeb855c415ef9, type: 2}
+      propertyPath: ExplosionObject
+      value: 
+      objectReference: {fileID: 194110, guid: a64b790524a7742d3b3c1320159f2f86, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e91b69e493364bb6afdeb855c415ef9, type: 2}
   m_IsPrefabParent: 0
@@ -6209,6 +6213,7 @@ MonoBehaviour:
   - {fileID: 2079922405}
   - {fileID: 105889647}
   - {fileID: 1004148126}
+  ExplosionObject: {fileID: 0}
 --- !u!114 &1481877473
 MonoBehaviour:
   m_ObjectHideFlags: 0

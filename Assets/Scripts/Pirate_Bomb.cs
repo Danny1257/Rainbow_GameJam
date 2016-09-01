@@ -7,7 +7,7 @@ public class Pirate_Bomb : MonoBehaviour
 	public GameObject AimObject, Bomb, EmptyBar, PowerBar;
 	public float MaxForce;
 	public List<GameObject> BombTarget_List = new List<GameObject>();
-
+	public GameObject ExplosionObject;
 
 	private Rigidbody body;
 	private Vector3 mousePos, screenPos;
@@ -110,6 +110,9 @@ public class Pirate_Bomb : MonoBehaviour
 				{
 					Debug.Log("The explosion missed the targets!");
 				}
+
+				GameObject explosionEffect = Instantiate(ExplosionObject);
+				explosionEffect.transform.position = currentBomb.transform.position;
 
 				Destroy(currentBomb);
 				BombReady = true;

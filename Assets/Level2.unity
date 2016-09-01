@@ -4278,6 +4278,7 @@ MonoBehaviour:
   PowerBar: {fileID: 1249561852}
   MaxForce: 500
   BombTarget_List: []
+  ExplosionObject: {fileID: 194110, guid: a64b790524a7742d3b3c1320159f2f86, type: 2}
 --- !u!114 &373442807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14103,6 +14104,7 @@ MonoBehaviour:
   PowerBar: {fileID: 1249561852}
   MaxForce: 500
   BombTarget_List: []
+  ExplosionObject: {fileID: 0}
 --- !u!114 &2007503215
 MonoBehaviour:
   m_ObjectHideFlags: 0
