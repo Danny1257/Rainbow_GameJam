@@ -157,17 +157,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Wizard_animator: {fileID: 9100000, guid: 5cecdad60916e4d45b64732d0bb6a990, type: 2}
-  Pirate_Animator: {fileID: 9100000, guid: 7da14b22c580b0c4da43ddc9cfc4192a, type: 2}
+  Pirate_Animator: {fileID: 9100000, guid: e18f07f12b8e841c8a383eca7b2d8db8, type: 2}
   Astronaut_Animator: {fileID: 9100000, guid: ecc8178a61f9a4b05863a6b5d4ee4a61, type: 2}
   Wizard_Avatar: {fileID: 9000000, guid: 4f385ed65475a1f438d5b8ba06802ed1, type: 3}
-  Pirate_Avatar: {fileID: 9000000, guid: 87d6fc0f59d210f4798b9bd396fea7ee, type: 3}
+  Pirate_Avatar: {fileID: 9000000, guid: d681e43cba7c6d943ae1fbd5ec488d1d, type: 3}
   Astronaut_Avatar: {fileID: 9000000, guid: f30a02f3703c6d54d811638a77696411, type: 3}
   WizardMesh_Object: {fileID: 146110, guid: bd37c63c2ac8644c5a9bdcfc50a8db45, type: 2}
-  PirateMesh_Object: {fileID: 160618, guid: 2e91b69e493364bb6afdeb855c415ef9, type: 2}
+  PirateMesh_Object: {fileID: 161532, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
   AstronautMesh_Object: {fileID: 136538, guid: db3f39bdf904c451285e36c59de77672, type: 2}
   currentMeshObject: {fileID: 193333164}
-  EmptyPowerBar: {fileID: 0}
-  PowerBar: {fileID: 0}
+  EmptyPowerBar: {fileID: 994639447}
+  PowerBar: {fileID: 2096010560}
 --- !u!136 &37270992
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -200,6 +200,7 @@ MonoBehaviour:
   BombTarget_List:
   - {fileID: 427922821}
   - {fileID: 1328258625}
+  ExplosionObject: {fileID: 194110, guid: a64b790524a7742d3b3c1320159f2f86, type: 2}
 --- !u!114 &37270994
 MonoBehaviour:
   m_ObjectHideFlags: 0
