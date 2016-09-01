@@ -16,7 +16,7 @@ public class Disappear_Platform : MonoBehaviour {
 	void Start()
 	{
 		if (platform1 != null) {
-			platform1_collider = platform1.GetComponentInChildren<BoxCollider> ();
+			platform1_collider = platform1.GetComponent<BoxCollider> ();
 		}
 
 		if (platform2 != null) {

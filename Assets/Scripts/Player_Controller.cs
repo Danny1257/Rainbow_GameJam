@@ -210,6 +210,63 @@ public class Player_Controller : MonoBehaviour
 			CharacterTransformSystem.Play();
 			characterSwap.PersonalityChange();
 		}
+		else if (Input.GetKeyDown(KeyCode.W))
+		{
+			if (CurrentStatus == CharacterStatus.Wizard)
+			{
+				if (PersonalitiesList.Contains(CharacterStatus.Astronaut))
+					CurrentStatus = CharacterStatus.Astronaut;
+				else
+					CurrentStatus = CharacterStatus.Pirate;
+			}				
+			else if (CurrentStatus == CharacterStatus.Astronaut)
+			{
+				if (PersonalitiesList.Contains(CharacterStatus.Pirate))
+					CurrentStatus = CharacterStatus.Pirate;
+				else 
+					CurrentStatus = CharacterStatus.Wizard;
+			}				
+			else if (CurrentStatus == CharacterStatus.Pirate)
+			{
+				if (PersonalitiesList.Contains(CharacterStatus.Wizard))
+					CurrentStatus = CharacterStatus.Wizard;
+				else
+					CurrentStatus = CharacterStatus.Astronaut;
+			}
+			
+			CharacterTransformSystem.Play();
+			
+			characterSwap.PersonalityChange();
+		}
+		else if (Input.GetKeyDown(KeyCode.S))
+		{
+			if (CurrentStatus == CharacterStatus.Wizard)
+			{
+				if (PersonalitiesList.Contains(CharacterStatus.Pirate))
+					CurrentStatus = CharacterStatus.Pirate;
+				else
+					CurrentStatus = CharacterStatus.Astronaut;
+			}				
+			else if (CurrentStatus == CharacterStatus.Astronaut)
+			{
+				if (PersonalitiesList.Contains(CharacterStatus.Wizard))
+					CurrentStatus = CharacterStatus.Wizard;
+				else
+					CurrentStatus = CharacterStatus.Pirate;
+			}				
+			else if (CurrentStatus == CharacterStatus.Pirate)
+			{
+				if (PersonalitiesList.Contains(CharacterStatus.Astronaut))
+					CurrentStatus = CharacterStatus.Astronaut;
+				else 
+					CurrentStatus = CharacterStatus.Wizard;
+			}
+			
+			CharacterTransformSystem.Play();
+			characterSwap.PersonalityChange();
+		}
+
+
 	}
 
 	public void Pickup(int pickUpNumber, Vector3 pickupPos)
@@ -222,21 +279,27 @@ public class Player_Controller : MonoBehaviour
 		{
 			if (Application.loadedLevelName == "Scene")
 			{
-				if (!PersonalitiesList.Contains(CharacterStatus.Pirate))
-					PersonalitiesList.Add(CharacterStatus.Pirate);
-				CurrentStatus = CharacterStatus.Pirate;
+				if (!PersonalitiesList.Contains(CharacterStatus.Wizard))
+					PersonalitiesList.Add(CharacterStatus.Wizard);
+				CurrentStatus = CharacterStatus.Wizard;
+				CharacterTransformSystem.Play();
+				characterSwap.PersonalityChange();
 			}
 			else if (Application.loadedLevelName == "Level2")
 			{
 				if (!PersonalitiesList.Contains(CharacterStatus.Pirate))
 					PersonalitiesList.Add(CharacterStatus.Pirate);
 				CurrentStatus = CharacterStatus.Pirate;
+				CharacterTransformSystem.Play();
+				characterSwap.PersonalityChange();
 			}
 			else if (Application.loadedLevelName == "Level3")
 			{
 				if (!PersonalitiesList.Contains(CharacterStatus.Astronaut))
 					PersonalitiesList.Add(CharacterStatus.Astronaut);
 				CurrentStatus = CharacterStatus.Astronaut;
+				CharacterTransformSystem.Play();
+				characterSwap.PersonalityChange();
 			}
 		}
 
