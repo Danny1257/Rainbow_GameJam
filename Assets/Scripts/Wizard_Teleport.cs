@@ -19,7 +19,7 @@ public class Wizard_Teleport : MonoBehaviour
 		StartRechargeTimer = false;
 		TeleportReady = true;
 
-		wizard_Light.color = Color.blue;
+		//wizard_Light.color = Color.blue;
 	}
 	
 	// Update is called once per frame

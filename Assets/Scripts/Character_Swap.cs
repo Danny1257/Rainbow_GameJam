@@ -8,7 +8,7 @@ public class Character_Swap : MonoBehaviour {
 	public GameObject WizardMesh_Object, PirateMesh_Object, AstronautMesh_Object;
 
 
-	public GameObject currentMeshObject;
+	public GameObject currentMeshObject, EmptyPowerBar, PowerBar;
 	private Animator currentPlayerAnimator;
 	private Player_Controller playerController;
 	private bool NeedChange;
@@ -19,6 +19,8 @@ public class Character_Swap : MonoBehaviour {
 	{
 		currentPlayerAnimator = transform.GetComponentInChildren<Animator> ();
 		playerController = transform.GetComponentInChildren<Player_Controller> ();
+		EmptyPowerBar = transform.FindChild ("BombUI").gameObject;
+		PowerBar = transform.FindChild ("PowerBar").gameObject;
 		NeedChange = false;
 	}
 	
@@ -64,6 +66,14 @@ public class Character_Swap : MonoBehaviour {
 				currentPlayerAnimator.runtimeAnimatorController = Astronaut_Animator;
 				currentPlayerAnimator.avatar = Astronaut_Avatar;
 			}
+
+			// Disable power bar.
+			if (EmptyPowerBar.activeSelf == true)
+			{
+				EmptyPowerBar.SetActive(false);
+				PowerBar.SetActive(false);
+			}
+
 
 			NeedChange = false;
 		}
