@@ -35,7 +35,7 @@ public class Pirate_Bomb : MonoBehaviour
 		MaxBarScale = PowerBar.transform.localScale.x;
 		//PowerBar.transform.localScale = new Vector3(0, PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
 		rate = MaxBarScale / 1.2f;
-		PowerRate = 300 / 1.2f;
+		PowerRate = 350 / 1.2f;
 		Debug.Log("Max bar scale " + MaxBarScale);
 		playerAnimator = transform.GetComponent<Animator> ();
 		startAnimation = false;
@@ -55,12 +55,12 @@ public class Pirate_Bomb : MonoBehaviour
 			{
 				if (force < MaxForce)
 				{
-					force += 250 * Time.deltaTime;
+					force += PowerRate * Time.deltaTime;
 					Debug.Log("Force = " + force);
 
 					// Alter power bar size
 					//PowerBar.transform.localScale = new Vector3(PowerBar.transform.localScale.x + (rate * Time.deltaTime), PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
-					float percent = ((force - 200) / 300) * 100;
+					float percent = ((force - 200) / 350) * 100;
 					float XScale = (percent * MaxBarScale) / 100;
 					
 					PowerBar.transform.localScale = new Vector3 (XScale, PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
@@ -87,9 +87,6 @@ public class Pirate_Bomb : MonoBehaviour
 			
 			if (BombReleased)
 			{
-
-
-
 				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 				
 				Plane zPlane = new Plane(Vector3.forward, Vector3.zero);
