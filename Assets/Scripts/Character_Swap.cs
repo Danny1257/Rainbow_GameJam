@@ -42,6 +42,8 @@ public class Character_Swap : MonoBehaviour {
 				currentPlayerAnimator.runtimeAnimatorController = Wizard_animator;
 				currentPlayerAnimator.avatar = Wizard_Avatar;
 
+				transform.GetComponentInChildren<Astronaut_Fly>().StartTimer();
+
 				Jetpack.SetActive(false);
 
 			} 
@@ -56,6 +58,8 @@ public class Character_Swap : MonoBehaviour {
 			
 				currentPlayerAnimator.runtimeAnimatorController = Pirate_Animator;
 				currentPlayerAnimator.avatar = Pirate_Avatar;
+
+				transform.GetComponentInChildren<Astronaut_Fly>().StartTimer();
 
 				Jetpack.SetActive(false);
 			} 
