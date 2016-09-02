@@ -1784,7 +1784,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: 3
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4354,7 +4354,6 @@ MonoBehaviour:
   PlayerSpeed: 4
   JumpPower: 6
   FacingRight: 0
-  footSteps_Audio: {fileID: 0}
 --- !u!114 &373442810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14422,7 +14421,6 @@ MonoBehaviour:
   PlayerSpeed: 4
   JumpPower: 6
   FacingRight: 0
-  footSteps_Audio: {fileID: 0}
 --- !u!114 &2007503218
 MonoBehaviour:
   m_ObjectHideFlags: 0

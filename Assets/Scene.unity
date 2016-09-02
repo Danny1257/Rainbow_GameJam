@@ -1346,7 +1346,7 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 399153223}
-  lengthInSec: 1
+  lengthInSec: .5
   startDelay: 0
   speed: 1
   randomSeed: 0
@@ -1584,7 +1584,7 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 1000
+    maxNumParticles: 5
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -1592,8 +1592,8 @@ ParticleSystem:
     radius: 1
     angle: 25
     length: 5
-    boxX: 2.71000004
-    boxY: 3.61999989
+    boxX: .970000029
+    boxY: .560000002
     boxZ: 1.38999999
     arc: 360
     placementMode: 0
@@ -4544,7 +4544,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6529960, guid: a4fd0dcc09611b549a7177b7a7e9432d, type: 2}
       propertyPath: m_Size.x
-      value: .99000001
+      value: .985000014
+      objectReference: {fileID: 0}
+    - target: {fileID: 6567476, guid: a4fd0dcc09611b549a7177b7a7e9432d, type: 2}
+      propertyPath: m_Size.x
+      value: 1.00999999
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a4fd0dcc09611b549a7177b7a7e9432d, type: 2}
@@ -6424,7 +6428,6 @@ MonoBehaviour:
   PlayerSpeed: 4
   JumpPower: 6
   FacingRight: 0
-  footSteps_Audio: {fileID: 499593707}
 --- !u!114 &1763456321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8345,7 +8348,6 @@ MonoBehaviour:
   PlayerSpeed: 4
   JumpPower: 6
   FacingRight: 0
-  footSteps_Audio: {fileID: 0}
 --- !u!114 &1978544063
 MonoBehaviour:
   m_ObjectHideFlags: 0

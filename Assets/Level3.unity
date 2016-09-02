@@ -413,7 +413,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 19899822, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
       propertyPath: InitialModule.startSize.scalar
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 468386, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6625,7 +6625,6 @@ MonoBehaviour:
   PlayerSpeed: 4
   JumpPower: 6
   FacingRight: 0
-  footSteps_Audio: {fileID: 0}
 --- !u!114 &1481877476
 MonoBehaviour:
   m_ObjectHideFlags: 0
