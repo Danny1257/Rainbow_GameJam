@@ -5,10 +5,12 @@ public class Wizard_Teleport : MonoBehaviour
 {
 	public float dashDistance;
 	public Light wizard_Light;
+	public AudioSource TeleportAudio;
 
 	private Player_Movement player_movement;
 	private float enableTimer, RechargeTimer;
 	private bool StartEnableTimer, TeleportReady, StartRechargeTimer;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -56,6 +58,7 @@ public class Wizard_Teleport : MonoBehaviour
 
 	public void Teleport()
 	{
+		TeleportAudio.Play ();
 		transform.GetComponentInChildren<TrailRenderer>().startWidth = 0.8f;
 		transform.GetComponentInChildren<TrailRenderer>().endWidth = 0.8f;
 
