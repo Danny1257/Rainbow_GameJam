@@ -23,21 +23,31 @@ public class Grounded : MonoBehaviour {
 
 		if (parentPlatformScript != null) {
 
-			if (parentPlatformScript.GetPlatformColliderState (platform_number) == false) {
-				if (!playerOnPlatform) {
+			if (parentPlatformScript.GetPlatformColliderState (platform_number) == false) 
+			{
+				Debug.Log("Platform is not active");
+				if (!playerOnPlatform) 
+				{
 					transform.GetComponentInChildren<BoxCollider> ().enabled = false;
-				} else {
+				} 
+				else
+				{
 					transform.GetComponentInChildren<BoxCollider> ().enabled = false;
 					playerMovement.SetGrounded (false);
 				}
 			}
-		} 
-		if (parentPlatformScript2 != null){
 
-			if (parentPlatformScript2.GetPlatformColliderState (platform_number) == false) {
-				if (!playerOnPlatform) {
+		} 
+		if (parentPlatformScript2 != null)
+		{
+			if (parentPlatformScript2.GetPlatformColliderState (platform_number) == false)
+			{
+				if (!playerOnPlatform) 
+				{
 					transform.GetComponentInChildren<BoxCollider> ().enabled = false;
-				} else {
+				} 
+				else 
+				{
 					transform.GetComponentInChildren<BoxCollider> ().enabled = false;
 					playerMovement.SetGrounded (false);
 				}

@@ -5,10 +5,12 @@ public class Wizard_Teleport : MonoBehaviour
 {
 	public float dashDistance;
 	public Light wizard_Light;
+	public AudioSource TeleportAudio;
 
 	private Player_Movement player_movement;
 	private float enableTimer, RechargeTimer;
 	private bool StartEnableTimer, TeleportReady, StartRechargeTimer;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -19,12 +21,13 @@ public class Wizard_Teleport : MonoBehaviour
 		StartRechargeTimer = false;
 		TeleportReady = true;
 
-		wizard_Light.color = Color.blue;
+		//wizard_Light.color = Color.blue;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
+
 		if (StartEnableTimer)
 		{
 			wizard_Light.color = Color.red;
@@ -55,6 +58,7 @@ public class Wizard_Teleport : MonoBehaviour
 
 	public void Teleport()
 	{
+		TeleportAudio.Play ();
 		transform.GetComponentInChildren<TrailRenderer>().startWidth = 0.8f;
 		transform.GetComponentInChildren<TrailRenderer>().endWidth = 0.8f;
 
@@ -148,7 +152,10 @@ public class Wizard_Teleport : MonoBehaviour
 
 	public void SetPointLight(bool State)
 	{
+		//wizard_Light = transform.FindChild ("Point light").transform.GetComponent<Light> ();
+		wizard_Light.transform.gameObject.SetActive (State);
 		wizard_Light.enabled = State;
+
 	}
 
 	public bool GetTeleportReady()

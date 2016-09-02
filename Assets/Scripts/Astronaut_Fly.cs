@@ -7,10 +7,12 @@ public class Astronaut_Fly : MonoBehaviour
 	public float FlyPower;
 	public ParticleSystem my_particleSystem;
 	public GameObject EmptyBar, PowerBar;
+	public AudioSource Jetpack_Audio;
 
 	//private members
 	private bool FlyReady, RechargeTheTimer, Flying;
 	private float RechargeTimer, FuelLeft, MaxBarScale, rate, fuelRate;
+	private Player_Controller player_controller;
 
 
 	// Use this for initialization
@@ -24,19 +26,31 @@ public class Astronaut_Fly : MonoBehaviour
 		my_particleSystem.Stop();
 		MaxBarScale = PowerBar.transform.localScale.x;
 		fuelRate = 100/2.5f;
-		rate = MaxBarScale / 2.5f;		
+		rate = MaxBarScale / 2.5f;
+		player_controller = transform.GetComponentInChildren<Player_Controller> ();
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+
+
 		if (FuelLeft < 100 && RechargeTheTimer == false && !Flying)
 		{
 			FuelLeft += (fuelRate * Time.deltaTime);
 
-			PowerBar.transform.localScale = new Vector3(PowerBar.transform.localScale.x + (rate * Time.deltaTime), PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
+			//PowerBar.transform.localScale = new Vector3(PowerBar.transform.localScale.x + (rate * Time.deltaTime), PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
 
+			float XScale = (FuelLeft * MaxBarScale) / 100;
+			
+			PowerBar.transform.localScale = new Vector3 (XScale, PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
 			FlyReady = true;
+		}
+
+		if (player_controller.GetCurrentStatus() != Player_Controller.CharacterStatus.Astronaut) {
+			StopParticles();
+			RechargeTheTimer = false;
+			Flying = false;
 		}
 
 
@@ -54,6 +68,9 @@ public class Astronaut_Fly : MonoBehaviour
 
 	public void Fly()
 	{
+		if (!Jetpack_Audio.isPlaying) {
+			Jetpack_Audio.Play();
+		}
 		EmptyBar.SetActive(true);
 		PowerBar.SetActive(true);
 		if (FlyReady)
@@ -67,7 +84,9 @@ public class Astronaut_Fly : MonoBehaviour
 			//FuelLeft -= Time.deltaTime * (100/3);
 
 			// Reduce fuel bar
-			PowerBar.transform.localScale = new Vector3(PowerBar.transform.localScale.x - (rate * Time.deltaTime), PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
+			float XScale = (FuelLeft * MaxBarScale) / 100;
+			
+			PowerBar.transform.localScale = new Vector3 (XScale, PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
 
 			Rigidbody body = transform.GetComponentInChildren<Rigidbody>();
 
@@ -85,6 +104,7 @@ public class Astronaut_Fly : MonoBehaviour
 			{
 				FlyReady = false;
 				my_particleSystem.Stop();
+				Jetpack_Audio.Stop ();
 			}
 
 			Debug.Log("Fuel Left = " + FuelLeft);
@@ -93,7 +113,8 @@ public class Astronaut_Fly : MonoBehaviour
 
 	public void StopParticles()
 	{
-		my_particleSystem.Stop();
+		my_particleSystem.Stop ();
+		Jetpack_Audio.Stop ();
 	}
 
 	public void StartTimer()

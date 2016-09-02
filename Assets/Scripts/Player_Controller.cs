@@ -11,9 +11,10 @@ public class Player_Controller : MonoBehaviour
 	public List<GameObject> PickUps_List = new List<GameObject>();
 	public GameObject PickUpObject;
 	public ParticleSystem CharacterTransformSystem;
+	public AudioSource PickUpSound;
 
 	// Private Members
-	private enum CharacterStatus{ Default, Wizard, Astronaut, Pirate };
+	public enum CharacterStatus{ Default, Wizard, Astronaut, Pirate };
 	private CharacterStatus CurrentStatus;
 	private List<CharacterStatus> PersonalitiesList = new List<CharacterStatus>();
 
@@ -23,6 +24,7 @@ public class Player_Controller : MonoBehaviour
 	private int ActiveCheckpoint;
 	private int NumOfPickups;
 	private Vector3 LastPickUpPos;
+	private Character_Swap characterSwap;
 	
 	// Use this for initialization
 	void Start ()
@@ -34,6 +36,7 @@ public class Player_Controller : MonoBehaviour
 		NumOfPickups = 0;
 		ActiveCheckpoint = 0;
 		LastPickUpPos = new Vector3(0, 0, 0);
+		characterSwap = transform.GetComponentInChildren<Character_Swap> ();
 
 		if (Application.loadedLevelName == "Level2")
 		{
@@ -177,6 +180,8 @@ public class Player_Controller : MonoBehaviour
 			}
 
 			CharacterTransformSystem.Play();
+
+			characterSwap.PersonalityChange();
 				
 		}
 		else if (Input.GetAxis("Mouse ScrollWheel") < 0)
@@ -201,12 +206,73 @@ public class Player_Controller : MonoBehaviour
 					CurrentStatus = CharacterStatus.Astronaut;
 				else 
 					CurrentStatus = CharacterStatus.Wizard;
-			}				
+			}
+
+			CharacterTransformSystem.Play();
+			characterSwap.PersonalityChange();
 		}
+		else if (Input.GetKeyDown(KeyCode.W))
+		{
+			if (CurrentStatus == CharacterStatus.Wizard)
+			{
+				if (PersonalitiesList.Contains(CharacterStatus.Astronaut))
+					CurrentStatus = CharacterStatus.Astronaut;
+				else
+					CurrentStatus = CharacterStatus.Pirate;
+			}				
+			else if (CurrentStatus == CharacterStatus.Astronaut)
+			{
+				if (PersonalitiesList.Contains(CharacterStatus.Pirate))
+					CurrentStatus = CharacterStatus.Pirate;
+				else 
+					CurrentStatus = CharacterStatus.Wizard;
+			}				
+			else if (CurrentStatus == CharacterStatus.Pirate)
+			{
+				if (PersonalitiesList.Contains(CharacterStatus.Wizard))
+					CurrentStatus = CharacterStatus.Wizard;
+				else
+					CurrentStatus = CharacterStatus.Astronaut;
+			}
+			
+			CharacterTransformSystem.Play();
+			
+			characterSwap.PersonalityChange();
+		}
+		else if (Input.GetKeyDown(KeyCode.S))
+		{
+			if (CurrentStatus == CharacterStatus.Wizard)
+			{
+				if (PersonalitiesList.Contains(CharacterStatus.Pirate))
+					CurrentStatus = CharacterStatus.Pirate;
+				else
+					CurrentStatus = CharacterStatus.Astronaut;
+			}				
+			else if (CurrentStatus == CharacterStatus.Astronaut)
+			{
+				if (PersonalitiesList.Contains(CharacterStatus.Wizard))
+					CurrentStatus = CharacterStatus.Wizard;
+				else
+					CurrentStatus = CharacterStatus.Pirate;
+			}				
+			else if (CurrentStatus == CharacterStatus.Pirate)
+			{
+				if (PersonalitiesList.Contains(CharacterStatus.Astronaut))
+					CurrentStatus = CharacterStatus.Astronaut;
+				else 
+					CurrentStatus = CharacterStatus.Wizard;
+			}
+			
+			CharacterTransformSystem.Play();
+			characterSwap.PersonalityChange();
+		}
+
+
 	}
 
 	public void Pickup(int pickUpNumber, Vector3 pickupPos)
 	{
+		PickUpSound.Play ();
 		NumOfPickups++;
 
 		LastPickUpPos = pickupPos;
@@ -215,21 +281,27 @@ public class Player_Controller : MonoBehaviour
 		{
 			if (Application.loadedLevelName == "Scene")
 			{
-				if (!PersonalitiesList.Contains(CharacterStatus.Pirate))
-					PersonalitiesList.Add(CharacterStatus.Pirate);
-				CurrentStatus = CharacterStatus.Pirate;
+				if (!PersonalitiesList.Contains(CharacterStatus.Wizard))
+					PersonalitiesList.Add(CharacterStatus.Wizard);
+				CurrentStatus = CharacterStatus.Wizard;
+				CharacterTransformSystem.Play();
+				characterSwap.PersonalityChange();
 			}
 			else if (Application.loadedLevelName == "Level2")
 			{
 				if (!PersonalitiesList.Contains(CharacterStatus.Pirate))
 					PersonalitiesList.Add(CharacterStatus.Pirate);
 				CurrentStatus = CharacterStatus.Pirate;
+				CharacterTransformSystem.Play();
+				characterSwap.PersonalityChange();
 			}
 			else if (Application.loadedLevelName == "Level3")
 			{
 				if (!PersonalitiesList.Contains(CharacterStatus.Astronaut))
 					PersonalitiesList.Add(CharacterStatus.Astronaut);
 				CurrentStatus = CharacterStatus.Astronaut;
+				CharacterTransformSystem.Play();
+				characterSwap.PersonalityChange();
 			}
 		}
 
@@ -272,6 +344,11 @@ public class Player_Controller : MonoBehaviour
 			if (NumOfPickups == 3)
 				ActiveCheckpoint = 3;
 		}
+	}
+
+	public CharacterStatus GetCurrentStatus()
+	{
+		return CurrentStatus;
 	}
 
 	public int GetNumOfPickups()

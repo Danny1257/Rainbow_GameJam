@@ -7,7 +7,7 @@ public class Pirate_Bomb : MonoBehaviour
 	public GameObject AimObject, Bomb, EmptyBar, PowerBar;
 	public float MaxForce;
 	public List<GameObject> BombTarget_List = new List<GameObject>();
-
+	public GameObject ExplosionObject;
 
 	private Rigidbody body;
 	private Vector3 mousePos, screenPos;
@@ -111,6 +111,9 @@ public class Pirate_Bomb : MonoBehaviour
 					Debug.Log("The explosion missed the targets!");
 				}
 
+				GameObject explosionEffect = Instantiate(ExplosionObject);
+				explosionEffect.transform.position = currentBomb.transform.position;
+
 				Destroy(currentBomb);
 				BombReady = true;
 				StartTimer = false;
@@ -139,6 +142,11 @@ public class Pirate_Bomb : MonoBehaviour
 
 		}
 
+		if (bombTarget.GetComponentInChildren<BombTargetController> ().Platform.GetComponentInChildren<MoveablePlatform> () != null) {
+			MoveablePlatform moveablePlatform = bombTarget.GetComponentInChildren<BombTargetController>().Platform.GetComponentInChildren<MoveablePlatform>();
+			moveablePlatform.SetBombTrigger(true);
+		}
+
 
 	}
 
@@ -165,6 +173,12 @@ public class Pirate_Bomb : MonoBehaviour
 				Disappear_TarPlatform TriggerDisPlatform = BombTarget_List[n].transform.GetComponentInChildren<BombTargetController>().Platform.GetComponentInChildren<Disappear_TarPlatform>();
 				TriggerDisPlatform.SetBombTriggered(false);
 				TriggerDisPlatform.ResetPlatform();
+				}
+
+				if (BombTarget_List[n].transform.GetComponentInChildren<BombTargetController>().Platform.GetComponentInChildren<MoveablePlatform>() != null) {
+					MoveablePlatform moveablePlatform = BombTarget_List[n].transform.GetComponentInChildren<BombTargetController>().Platform.GetComponentInChildren<MoveablePlatform>();
+					moveablePlatform.SetBombTrigger(false);
+					moveablePlatform.ResetPlatform();
 				}
 
 			}
