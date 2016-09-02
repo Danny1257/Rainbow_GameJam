@@ -51,7 +51,7 @@ public class Astronaut_Fly : MonoBehaviour
 
 		if (player_controller.GetCurrentStatus() != Player_Controller.CharacterStatus.Astronaut) {
 			StopParticles();
-			RechargeTheTimer = false;
+			//RechargeTheTimer = false;	
 			Flying = false;
 		}
 
