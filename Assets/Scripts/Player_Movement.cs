@@ -6,6 +6,7 @@ public class Player_Movement : MonoBehaviour
 	// Public Members
 	public float PlayerSpeed, JumpPower;
 	public bool FacingRight;
+	public AudioSource footSteps_Audio;
 
 
 	// Private Memebers
@@ -59,10 +60,18 @@ public class Player_Movement : MonoBehaviour
 		if (MovingRight == true || MovingLeft == true)
 		{
 			player_Animator.SetBool("PlayerMoving", true);
+			if (Grounded)
+			{
+				if (footSteps_Audio.isPlaying == false)
+					footSteps_Audio.Play();
+			}
+			else 
+				footSteps_Audio.Stop();
 		}
 		else
 		{
 			player_Animator.SetBool("PlayerMoving", false);
+			footSteps_Audio.Stop();
 		}
 
 	}

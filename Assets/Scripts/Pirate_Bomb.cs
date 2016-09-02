@@ -10,6 +10,7 @@ public class Pirate_Bomb : MonoBehaviour
 	public GameObject ExplosionObject;
 	public float animationTimer;
 
+
 	private Rigidbody body;
 	private Vector3 mousePos, screenPos;
 	private GameObject currentBomb;
@@ -19,6 +20,7 @@ public class Pirate_Bomb : MonoBehaviour
 	private Explosion_Zone explosion_zone;
 	private float MaxBarScale, rate, PowerRate;
 	private Animator playerAnimator;
+	private float StartAnimationTimer;
 
 	// Use this for initialization
 	void Start () 
@@ -38,6 +40,7 @@ public class Pirate_Bomb : MonoBehaviour
 		playerAnimator = transform.GetComponent<Animator> ();
 		startAnimation = false;
 		PowerFinished = false;
+		StartAnimationTimer = animationTimer;
 	}
 	
 	// Update is called once per frame
@@ -68,7 +71,7 @@ public class Pirate_Bomb : MonoBehaviour
 				animationTimer -= Time.deltaTime;
 				if (animationTimer <= 0)
 				{
-					animationTimer = 1.0f;
+					animationTimer = StartAnimationTimer;
 					BombReleased = true;
 					startAnimation = false;
 					currentBomb = Instantiate(Bomb);
