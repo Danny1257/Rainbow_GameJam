@@ -16,7 +16,7 @@ public class Pirate_Bomb : MonoBehaviour
 	private float force, DestroyTimer;
 	private GameObject Current_ExplosionZone_Object;
 	private Explosion_Zone explosion_zone;
-	private float MaxBarScale, rate;
+	private float MaxBarScale, rate, PowerRate;
 	
 	// Use this for initialization
 	void Start () 
@@ -31,6 +31,7 @@ public class Pirate_Bomb : MonoBehaviour
 		MaxBarScale = PowerBar.transform.localScale.x;
 		//PowerBar.transform.localScale = new Vector3(0, PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
 		rate = MaxBarScale / 1.2f;
+		PowerRate = 300 / 1.2f;
 		Debug.Log("Max bar scale " + MaxBarScale);
 	}
 	
@@ -48,7 +49,11 @@ public class Pirate_Bomb : MonoBehaviour
 				Debug.Log("Force = " + force);
 
 				// Alter power bar size
-				PowerBar.transform.localScale = new Vector3(PowerBar.transform.localScale.x + (rate * Time.deltaTime), PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
+				//PowerBar.transform.localScale = new Vector3(PowerBar.transform.localScale.x + (rate * Time.deltaTime), PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
+				float percent = ((force - 200) / 300) * 100;
+				float XScale = (percent * MaxBarScale) / 100;
+				
+				PowerBar.transform.localScale = new Vector3 (XScale, PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
 			}
 			
 			

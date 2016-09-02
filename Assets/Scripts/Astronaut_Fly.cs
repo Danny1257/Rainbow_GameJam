@@ -42,8 +42,10 @@ public class Astronaut_Fly : MonoBehaviour
 			//PowerBar.transform.localScale = new Vector3(PowerBar.transform.localScale.x + (rate * Time.deltaTime), PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
 
 			float XScale = (FuelLeft * MaxBarScale) / 100;
-			
-			PowerBar.transform.localScale = new Vector3 (XScale, PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
+
+			if (player_controller.GetCurrentStatus() == Player_Controller.CharacterStatus.Astronaut) {
+				PowerBar.transform.localScale = new Vector3 (XScale, PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
+			}
 			FlyReady = true;
 		}
 
