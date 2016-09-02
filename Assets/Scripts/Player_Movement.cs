@@ -62,16 +62,23 @@ public class Player_Movement : MonoBehaviour
 			player_Animator.SetBool("PlayerMoving", true);
 			if (Grounded)
 			{
-				if (footSteps_Audio.isPlaying == false)
-					footSteps_Audio.Play();
+				if (Application.loadedLevelName == "Scene")
+				{
+					if (footSteps_Audio.isPlaying == false)
+						footSteps_Audio.Play();
+				}
 			}
 			else 
-				footSteps_Audio.Stop();
+			{
+				if (Application.loadedLevelName == "Scene")
+					footSteps_Audio.Stop();
+			}
 		}
 		else
 		{
 			player_Animator.SetBool("PlayerMoving", false);
-			footSteps_Audio.Stop();
+			if (Application.loadedLevelName == "Scene")
+				footSteps_Audio.Stop();
 		}
 
 	}
