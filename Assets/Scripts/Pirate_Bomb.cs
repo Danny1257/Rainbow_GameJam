@@ -208,6 +208,7 @@ public class Pirate_Bomb : MonoBehaviour
 
 		// Initialise Bomb UI settings i.e scale
 
+
 		force = 200;
 		PowerBar.transform.localScale = new Vector3(0, PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
 		currentBomb = Instantiate(Bomb);
