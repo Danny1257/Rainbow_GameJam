@@ -13,7 +13,7 @@ public class Pirate_Bomb : MonoBehaviour
 	private Rigidbody body;
 	private Vector3 mousePos, screenPos;
 	private GameObject currentBomb;
-	private bool BombSpawned, BombReleased, BombReady, StartTimer, startAnimation;
+	private bool BombSpawned, BombReleased, BombReady, StartTimer, startAnimation, PowerFinished;
 	private float force, DestroyTimer;
 	private GameObject Current_ExplosionZone_Object;
 	private Explosion_Zone explosion_zone;
@@ -37,6 +37,7 @@ public class Pirate_Bomb : MonoBehaviour
 		Debug.Log("Max bar scale " + MaxBarScale);
 		playerAnimator = transform.GetComponent<Animator> ();
 		startAnimation = false;
+		PowerFinished = false;
 	}
 	
 	// Update is called once per frame
@@ -45,26 +46,46 @@ public class Pirate_Bomb : MonoBehaviour
 		if (BombSpawned)
 		{
 			CapsuleCollider playerBox = transform.GetComponentInChildren<CapsuleCollider>();
-			currentBomb.transform.position = new Vector3(transform.position.x + (playerBox.radius) + 0.1f, transform.position.y + + (playerBox.radius), transform.position.z);
-			//currentBomb.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-			if (force < MaxForce)
-			{
-				force += 250 * Time.deltaTime;
-				Debug.Log("Force = " + force);
 
-				// Alter power bar size
-				//PowerBar.transform.localScale = new Vector3(PowerBar.transform.localScale.x + (rate * Time.deltaTime), PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
-				float percent = ((force - 200) / 300) * 100;
-				float XScale = (percent * MaxBarScale) / 100;
+			//currentBomb.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+			if (!PowerFinished)
+			{
+				if (force < MaxForce)
+				{
+					force += 250 * Time.deltaTime;
+					Debug.Log("Force = " + force);
+
+					// Alter power bar size
+					//PowerBar.transform.localScale = new Vector3(PowerBar.transform.localScale.x + (rate * Time.deltaTime), PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
+					float percent = ((force - 200) / 300) * 100;
+					float XScale = (percent * MaxBarScale) / 100;
+					
+					PowerBar.transform.localScale = new Vector3 (XScale, PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
+				}
+			}
+
+			if (startAnimation) {
+				animationTimer -= Time.deltaTime;
+				if (animationTimer <= 0)
+				{
+					animationTimer = 1.0f;
+					BombReleased = true;
+					startAnimation = false;
+					currentBomb = Instantiate(Bomb);
+					Current_ExplosionZone_Object = currentBomb.transform.GetChild(0).gameObject;
+
+					//currentBomb.transform.position = new Vector3(transform.position.x + (playerBox.radius) + 0.1f, transform.position.y + (playerBox.radius), transform.position.z);
+					currentBomb.transform.position = new Vector3(transform.position.x, transform.position.y + (playerBox.radius), transform.position.z);
+					currentBomb.transform.GetComponentInChildren<Rigidbody>().useGravity = false;
+				}
 				
-				PowerBar.transform.localScale = new Vector3 (XScale, PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
 			}
 			
 			
 			if (BombReleased)
 			{
 
-				playerAnimator.SetTrigger("Throw");
+
 
 				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 				
@@ -106,16 +127,7 @@ public class Pirate_Bomb : MonoBehaviour
 			}
 		}
 
-		if (startAnimation) {
-			animationTimer -= Time.deltaTime;
-			if (animationTimer <= 0)
-			{
-				animationTimer = 1.0f;
-				BombReleased = true;
-				startAnimation = false;
-			}
 
-		}
 
 		if (StartTimer)
 		{
@@ -232,23 +244,23 @@ public class Pirate_Bomb : MonoBehaviour
 		PowerBar.gameObject.SetActive(true);
 
 		// Initialise Bomb UI settings i.e scale
-
+		PowerFinished = false;
 
 		force = 200;
 		PowerBar.transform.localScale = new Vector3(0, PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
-		currentBomb = Instantiate(Bomb);
-		Current_ExplosionZone_Object = currentBomb.transform.GetChild(0).gameObject;
+
 		BombSpawned = true;
 
 		CapsuleCollider playerBox = transform.GetComponentInChildren<CapsuleCollider>();
 		
-		currentBomb.transform.position = new Vector3(transform.position.x + (playerBox.radius) + 0.1f, transform.position.y + (playerBox.radius), transform.position.z);
-		currentBomb.transform.GetComponentInChildren<Rigidbody>().useGravity = false;
+
 	}
 	
 	public void EndThrow()
 	{
 		startAnimation = true;
-		BombReady = false;		
+		BombReady = false;
+		PowerFinished = true;
+		playerAnimator.SetTrigger("Throw");
 	}
 }

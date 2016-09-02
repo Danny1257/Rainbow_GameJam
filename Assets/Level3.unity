@@ -387,6 +387,10 @@ Prefab:
       propertyPath: Jetpack
       value: 
       objectReference: {fileID: 2040991366}
+    - target: {fileID: 11402016, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
+      propertyPath: animationTimer
+      value: .370000005
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
   m_IsPrefabParent: 0
@@ -6532,6 +6536,7 @@ MonoBehaviour:
   - {fileID: 105889647}
   - {fileID: 1004148126}
   ExplosionObject: {fileID: 0}
+  animationTimer: 0
 --- !u!114 &1481877473
 MonoBehaviour:
   m_ObjectHideFlags: 0
