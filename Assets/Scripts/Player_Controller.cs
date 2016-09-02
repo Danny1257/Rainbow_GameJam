@@ -11,6 +11,7 @@ public class Player_Controller : MonoBehaviour
 	public List<GameObject> PickUps_List = new List<GameObject>();
 	public GameObject PickUpObject;
 	public ParticleSystem CharacterTransformSystem;
+	public AudioSource PickUpSound;
 
 	// Private Members
 	public enum CharacterStatus{ Default, Wizard, Astronaut, Pirate };
@@ -271,6 +272,7 @@ public class Player_Controller : MonoBehaviour
 
 	public void Pickup(int pickUpNumber, Vector3 pickupPos)
 	{
+		PickUpSound.Play ();
 		NumOfPickups++;
 
 		LastPickUpPos = pickupPos;

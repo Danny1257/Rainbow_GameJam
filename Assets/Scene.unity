@@ -5668,6 +5668,104 @@ Transform:
   m_Children: []
   m_Father: {fileID: 921533190}
   m_RootOrder: 0
+--- !u!1 &1416632304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1416632305}
+  - 82: {fileID: 1416632306}
+  m_Layer: 0
+  m_Name: PickUpAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1416632305
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1416632304}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1763456316}
+  m_RootOrder: 7
+--- !u!82 &1416632306
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1416632304}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a896201a343c449df8c2bf13a72c3137, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1421448315
 GameObject:
   m_ObjectHideFlags: 0
@@ -6276,6 +6374,7 @@ Transform:
   - {fileID: 1849897103}
   - {fileID: 399153224}
   - {fileID: 880564233}
+  - {fileID: 1416632305}
   m_Father: {fileID: 0}
   m_RootOrder: 4
 --- !u!114 &1763456317
@@ -6312,6 +6411,7 @@ MonoBehaviour:
   my_particleSystem: {fileID: 1832951782}
   EmptyBar: {fileID: 2129454490}
   PowerBar: {fileID: 1318930687}
+  Jetpack_Audio: {fileID: 0}
 --- !u!114 &1763456319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6364,6 +6464,7 @@ MonoBehaviour:
   - {fileID: 1527636150}
   PickUpObject: {fileID: 176904, guid: a5e509e013ceaf34386f82b60e7d03e8, type: 2}
   CharacterTransformSystem: {fileID: 399153226}
+  PickUpSound: {fileID: 1416632306}
 --- !u!136 &1763456322
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8242,6 +8343,7 @@ MonoBehaviour:
   PickUps_List: []
   PickUpObject: {fileID: 0}
   CharacterTransformSystem: {fileID: 0}
+  PickUpSound: {fileID: 0}
 --- !u!114 &1978544062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8288,6 +8390,7 @@ MonoBehaviour:
   my_particleSystem: {fileID: 0}
   EmptyBar: {fileID: 0}
   PowerBar: {fileID: 0}
+  Jetpack_Audio: {fileID: 0}
 --- !u!114 &1978544065
 MonoBehaviour:
   m_ObjectHideFlags: 0
