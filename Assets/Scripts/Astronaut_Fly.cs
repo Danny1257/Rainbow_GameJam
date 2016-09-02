@@ -7,6 +7,7 @@ public class Astronaut_Fly : MonoBehaviour
 	public float FlyPower;
 	public ParticleSystem my_particleSystem;
 	public GameObject EmptyBar, PowerBar;
+	public AudioSource Jetpack_Audio;
 
 	//private members
 	private bool FlyReady, RechargeTheTimer, Flying;
@@ -67,6 +68,9 @@ public class Astronaut_Fly : MonoBehaviour
 
 	public void Fly()
 	{
+		if (!Jetpack_Audio.isPlaying) {
+			Jetpack_Audio.Play();
+		}
 		EmptyBar.SetActive(true);
 		PowerBar.SetActive(true);
 		if (FlyReady)
@@ -100,6 +104,7 @@ public class Astronaut_Fly : MonoBehaviour
 			{
 				FlyReady = false;
 				my_particleSystem.Stop();
+				Jetpack_Audio.Stop ();
 			}
 
 			Debug.Log("Fuel Left = " + FuelLeft);
@@ -109,6 +114,7 @@ public class Astronaut_Fly : MonoBehaviour
 	public void StopParticles()
 	{
 		my_particleSystem.Stop ();
+		Jetpack_Audio.Stop ();
 	}
 
 	public void StartTimer()
