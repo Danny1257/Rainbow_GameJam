@@ -4354,7 +4354,7 @@ MonoBehaviour:
   PlayerSpeed: 4
   JumpPower: 6
   FacingRight: 0
-  footSteps_Audio: {fileID: 466569600}
+  footSteps_Audio: {fileID: 0}
 --- !u!114 &373442810
 MonoBehaviour:
   m_ObjectHideFlags: 0
