@@ -429,6 +429,7 @@ MonoBehaviour:
   PlayerSpeed: 4
   JumpPower: 6
   FacingRight: 0
+  footSteps_Audio: {fileID: 0}
 --- !u!1001 &37942113
 Prefab:
   m_ObjectHideFlags: 0
