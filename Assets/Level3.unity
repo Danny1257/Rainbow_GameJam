@@ -281,7 +281,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 495006, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -13.8800001
+      value: -10.2600002
       objectReference: {fileID: 0}
     - target: {fileID: 495006, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
       propertyPath: m_LocalPosition.y
@@ -398,6 +398,42 @@ Prefab:
     - target: {fileID: 11402016, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
       propertyPath: MaxForce
       value: 550
+      objectReference: {fileID: 0}
+    - target: {fileID: 19899822, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
+      propertyPath: EmissionModule.rate.scalar
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 19899822, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 19899822, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
+      propertyPath: lengthInSec
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 19899822, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 468386, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -.527999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 468386, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -.239999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 468386, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.0500000007
+      objectReference: {fileID: 0}
+    - target: {fileID: 19899822, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
+      propertyPath: ShapeModule.boxX
+      value: .970000029
+      objectReference: {fileID: 0}
+    - target: {fileID: 19899822, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
+      propertyPath: ShapeModule.boxY
+      value: .560000002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
