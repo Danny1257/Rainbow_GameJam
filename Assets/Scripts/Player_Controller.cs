@@ -136,6 +136,7 @@ public class Player_Controller : MonoBehaviour
 		if (PersonalitiesList.Count > 1)
 		{
 			CheckForPersonalityChange();
+			wizard_teleport.SetPointLight(false);
 		}
 
 		if (Input.GetMouseButtonDown(0))
