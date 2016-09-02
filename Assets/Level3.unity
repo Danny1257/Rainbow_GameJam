@@ -363,6 +363,30 @@ Prefab:
       propertyPath: PickUpSound
       value: 
       objectReference: {fileID: 587568739}
+    - target: {fileID: 425718, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.569000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 425718, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .442999989
+      objectReference: {fileID: 0}
+    - target: {fileID: 425718, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425718, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
+      propertyPath: m_LocalScale.y
+      value: .396733344
+      objectReference: {fileID: 0}
+    - target: {fileID: 425718, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
+      propertyPath: m_LocalScale.z
+      value: .396733373
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417186, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
+      propertyPath: Jetpack
+      value: 
+      objectReference: {fileID: 2040991366}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
   m_IsPrefabParent: 0
@@ -9456,6 +9480,68 @@ Transform:
   - {fileID: 1702522577}
   m_Father: {fileID: 1483624831}
   m_RootOrder: 0
+--- !u!1001 &2040991365
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 990064207}
+    m_Modifications:
+    - target: {fileID: 400000, guid: a8b5d4b149cdda947a455b60a5a0e36f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -.448000014
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a8b5d4b149cdda947a455b60a5a0e36f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: .393000007
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a8b5d4b149cdda947a455b60a5a0e36f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a8b5d4b149cdda947a455b60a5a0e36f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: .0527102984
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a8b5d4b149cdda947a455b60a5a0e36f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: .705139518
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a8b5d4b149cdda947a455b60a5a0e36f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -.0527103059
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a8b5d4b149cdda947a455b60a5a0e36f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: .705139399
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a8b5d4b149cdda947a455b60a5a0e36f, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a8b5d4b149cdda947a455b60a5a0e36f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: .300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a8b5d4b149cdda947a455b60a5a0e36f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: .300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a8b5d4b149cdda947a455b60a5a0e36f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: .300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a8b5d4b149cdda947a455b60a5a0e36f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a8b5d4b149cdda947a455b60a5a0e36f, type: 3}
+  m_IsPrefabParent: 0
+--- !u!1 &2040991366 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: a8b5d4b149cdda947a455b60a5a0e36f, type: 3}
+  m_PrefabInternal: {fileID: 2040991365}
 --- !u!1 &2047045161
 GameObject:
   m_ObjectHideFlags: 0

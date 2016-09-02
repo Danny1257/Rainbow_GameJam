@@ -6,6 +6,7 @@ public class Character_Swap : MonoBehaviour {
 	public RuntimeAnimatorController Wizard_animator, Pirate_Animator, Astronaut_Animator;
 	public Avatar Wizard_Avatar, Pirate_Avatar, Astronaut_Avatar;
 	public GameObject WizardMesh_Object, PirateMesh_Object, AstronautMesh_Object;
+	public GameObject Jetpack;
 
 
 	public GameObject currentMeshObject, EmptyPowerBar, PowerBar;
@@ -41,6 +42,8 @@ public class Character_Swap : MonoBehaviour {
 				currentPlayerAnimator.runtimeAnimatorController = Wizard_animator;
 				currentPlayerAnimator.avatar = Wizard_Avatar;
 
+				Jetpack.SetActive(false);
+
 			} 
 			else if (playerController.GetCurrentStatus () == Player_Controller.CharacterStatus.Pirate) 
 			{
@@ -53,6 +56,8 @@ public class Character_Swap : MonoBehaviour {
 			
 				currentPlayerAnimator.runtimeAnimatorController = Pirate_Animator;
 				currentPlayerAnimator.avatar = Pirate_Avatar;
+
+				Jetpack.SetActive(false);
 			} 
 			else if (playerController.GetCurrentStatus () == Player_Controller.CharacterStatus.Astronaut) 
 			{
@@ -65,6 +70,7 @@ public class Character_Swap : MonoBehaviour {
 
 				currentPlayerAnimator.runtimeAnimatorController = Astronaut_Animator;
 				currentPlayerAnimator.avatar = Astronaut_Avatar;
+				Jetpack.SetActive(true);
 			}
 
 			// Disable power bar.

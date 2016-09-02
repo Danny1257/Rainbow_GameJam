@@ -8,16 +8,18 @@ public class Pirate_Bomb : MonoBehaviour
 	public float MaxForce;
 	public List<GameObject> BombTarget_List = new List<GameObject>();
 	public GameObject ExplosionObject;
+	public float animationTimer;
 
 	private Rigidbody body;
 	private Vector3 mousePos, screenPos;
 	private GameObject currentBomb;
-	private bool BombSpawned, BombReleased, BombReady, StartTimer;
+	private bool BombSpawned, BombReleased, BombReady, StartTimer, startAnimation;
 	private float force, DestroyTimer;
 	private GameObject Current_ExplosionZone_Object;
 	private Explosion_Zone explosion_zone;
-	private float MaxBarScale, rate;
-	
+	private float MaxBarScale, rate, PowerRate;
+	private Animator playerAnimator;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -31,7 +33,10 @@ public class Pirate_Bomb : MonoBehaviour
 		MaxBarScale = PowerBar.transform.localScale.x;
 		//PowerBar.transform.localScale = new Vector3(0, PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
 		rate = MaxBarScale / 1.2f;
+		PowerRate = 300 / 1.2f;
 		Debug.Log("Max bar scale " + MaxBarScale);
+		playerAnimator = transform.GetComponent<Animator> ();
+		startAnimation = false;
 	}
 	
 	// Update is called once per frame
@@ -48,12 +53,19 @@ public class Pirate_Bomb : MonoBehaviour
 				Debug.Log("Force = " + force);
 
 				// Alter power bar size
-				PowerBar.transform.localScale = new Vector3(PowerBar.transform.localScale.x + (rate * Time.deltaTime), PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
+				//PowerBar.transform.localScale = new Vector3(PowerBar.transform.localScale.x + (rate * Time.deltaTime), PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
+				float percent = ((force - 200) / 300) * 100;
+				float XScale = (percent * MaxBarScale) / 100;
+				
+				PowerBar.transform.localScale = new Vector3 (XScale, PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
 			}
 			
 			
 			if (BombReleased)
 			{
+
+				playerAnimator.SetTrigger("Throw");
+
 				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 				
 				Plane zPlane = new Plane(Vector3.forward, Vector3.zero);
@@ -94,8 +106,21 @@ public class Pirate_Bomb : MonoBehaviour
 			}
 		}
 
+		if (startAnimation) {
+			animationTimer -= Time.deltaTime;
+			if (animationTimer <= 0)
+			{
+				animationTimer = 1.0f;
+				BombReleased = true;
+				startAnimation = false;
+			}
+
+		}
+
 		if (StartTimer)
 		{
+
+
 			DestroyTimer -= Time.deltaTime;
 			if (DestroyTimer <= 0)					////////// EXPLOSION POINT HERE!!!
 			{
@@ -223,7 +248,7 @@ public class Pirate_Bomb : MonoBehaviour
 	
 	public void EndThrow()
 	{
-		BombReleased = true;
+		startAnimation = true;
 		BombReady = false;		
 	}
 }
