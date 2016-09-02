@@ -1613,7 +1613,7 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 76447052}
-  lengthInSec: 1
+  lengthInSec: .5
   startDelay: 0
   speed: 1
   randomSeed: 0
@@ -1784,7 +1784,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: 1
+      scalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1851,7 +1851,7 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 1000
+    maxNumParticles: 5
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -1859,8 +1859,8 @@ ParticleSystem:
     radius: 1
     angle: 25
     length: 5
-    boxX: 2.71000004
-    boxY: 3.61999989
+    boxX: .970000029
+    boxY: .560000002
     boxZ: 1.38999999
     arc: 360
     placementMode: 0
