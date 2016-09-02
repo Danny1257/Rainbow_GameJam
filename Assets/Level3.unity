@@ -394,7 +394,7 @@ Prefab:
     - target: {fileID: 11480294, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
       propertyPath: footSteps_Audio
       value: 
-      objectReference: {fileID: 2037128038}
+      objectReference: {fileID: 0}
     - target: {fileID: 11402016, guid: 583c4ea33dd6a41c8a2743f2e302fcf3, type: 2}
       propertyPath: MaxForce
       value: 550
