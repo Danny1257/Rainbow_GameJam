@@ -190,7 +190,7 @@ public class Player_Movement : MonoBehaviour
 	{
 		if (collider.transform.tag == "Platform")
 		{
-			//Grounded = true;
+			Grounded = true;
 		}
 	}
 

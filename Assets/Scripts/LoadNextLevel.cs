@@ -31,7 +31,7 @@ public class LoadNextLevel : MonoBehaviour
 					Application.LoadLevel(2);
 				else if (Application.loadedLevelName == "Level3")
 					Application.LoadLevel(3);
-				else if (Application.loadedLevelName == "FinalLevel")
+				else if (Application.loadedLevelName == "Level4")
 					Application.LoadLevel(4);
 			}
 		}
