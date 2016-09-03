@@ -27,12 +27,14 @@ public class Disappear_TarPlatform : MonoBehaviour {
 				tarplatform1.GetComponentInChildren<Renderer>().enabled = true;
 				tarplatform1_collider.enabled = true;
 				tarplatform1.transform.GetChild(0).GetComponentInChildren<BoxCollider>().enabled = true;
+				transform.GetComponent<BoxCollider>().enabled = true;
 				
 			}
 			else
 			{
 				tarplatform1.GetComponentInChildren<Renderer>().enabled = false;
 				tarplatform1_collider.enabled = false;
+				transform.GetComponent<BoxCollider>().enabled = false;
 			}
 		}
 	
