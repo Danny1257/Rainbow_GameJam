@@ -3,16 +3,17 @@ using System.Collections;
 
 public class Disappear_TarPlatform : MonoBehaviour {
 
-	public GameObject tarplatform1;
+	public GameObject tarplatform1_Mesh;
 	public bool HasBombTargetTrigger;
 
-	private BoxCollider tarplatform1_collider;
+	private BoxCollider tarplatform1_collider, GroundedCollider;
 	private bool BombTriggered;
 
 	// Use this for initialization
 	void Start () {
 
-		tarplatform1_collider = tarplatform1.GetComponentInChildren<BoxCollider> ();
+		tarplatform1_collider = transform.GetComponent<BoxCollider> ();
+		GroundedCollider = transform.GetChild (0).transform.GetComponent<BoxCollider> ();
 		BombTriggered = false;
 	
 	}
@@ -24,17 +25,17 @@ public class Disappear_TarPlatform : MonoBehaviour {
 		{
 			if (BombTriggered)
 			{
-				tarplatform1.GetComponentInChildren<Renderer>().enabled = true;
+				tarplatform1_Mesh.SetActive(true);
 				tarplatform1_collider.enabled = true;
-				tarplatform1.transform.GetChild(0).GetComponentInChildren<BoxCollider>().enabled = true;
-				transform.GetComponent<BoxCollider>().enabled = true;
-				
+				GroundedCollider.enabled = true;
+								
 			}
 			else
 			{
-				tarplatform1.GetComponentInChildren<Renderer>().enabled = false;
+				tarplatform1_Mesh.SetActive(false);
+
 				tarplatform1_collider.enabled = false;
-				transform.GetComponent<BoxCollider>().enabled = false;
+				GroundedCollider.enabled = false;
 			}
 		}
 	
@@ -47,8 +48,9 @@ public class Disappear_TarPlatform : MonoBehaviour {
 	
 	public void ResetPlatform()
 	{
-		tarplatform1.GetComponentInChildren<Renderer>().enabled = false;
+		tarplatform1_Mesh.SetActive (false);
 		tarplatform1_collider.enabled = false;
+		GroundedCollider.enabled = false;
 	}
 
 	public bool GetPlatformColliderState(int platformNum)
