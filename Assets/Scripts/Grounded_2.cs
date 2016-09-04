@@ -15,6 +15,20 @@ public class Grounded_2 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (ParentCollider.enabled == false)
+		{
+			if (!PlayerOnPlatform) 
+			{
+				transform.GetComponentInChildren<BoxCollider> ().enabled = false;
+			} 
+			else 
+			{
+				transform.GetComponentInChildren<BoxCollider> ().enabled = false;
+				playerMovement.SetGrounded (false);
+			}
+		}
+
 	
 	}
 
