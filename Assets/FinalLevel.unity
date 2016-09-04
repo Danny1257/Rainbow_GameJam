@@ -177,8 +177,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 1, y: 189}
-  m_SizeDelta: {x: 500, y: 100}
+  m_AnchoredPosition: {x: 50, y: -50}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &589913493
 MonoBehaviour:
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71bb0560e3a614d25bba159d493b6b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  letterPause: .0799999982
+  letterPause: .0199999996
   typeSound1: {fileID: 0}
   typeSound2: {fileID: 0}
 --- !u!114 &589913494
@@ -214,8 +214,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: 00ee2b23824de5a40b52ebda90fa8841, type: 3}
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -225,9 +225,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Hello, this is the message.
-
-    This is the second line.'
+  m_Text: "It is estimated that in the United Kingdom alone, around 1 in \n20 people
+    suffer from some form of Dissociative identity \ndisorder (split personalities)...Jimmy
+    is one of those people.\n\nWith many of us setting out to create an image of ourselves
+    \nothers are struggling to figure out their true identity. We \nmade this game
+    in the hope of raising awareness for those who suffer from this mental disease."
 --- !u!222 &589913495
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -298,10 +300,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScaleFactor: 2
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -316,10 +318,10 @@ Canvas:
   m_GameObject: {fileID: 758704779}
   m_Enabled: 1
   serializedVersion: 2
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1637847539}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -389,8 +391,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -571.700012, y: -193.5}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &1464199886
 GameObject:
