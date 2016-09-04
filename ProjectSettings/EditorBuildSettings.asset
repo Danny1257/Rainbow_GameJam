@@ -16,4 +16,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Level4.unity
   - enabled: 1
+    path: Assets/Jimmy Falling Scene.unity
+  - enabled: 1
     path: Assets/FinalLevel.unity
