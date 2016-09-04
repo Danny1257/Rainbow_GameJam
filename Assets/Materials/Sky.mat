@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: platform_TXTR
+  m_Name: Sky
   m_Shader: {fileID: 4800000, guid: 48dca5b99d113b8d11006bab44295342, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 3043aa912a19d4d62a0b3d3899941894, type: 3}
+          m_Texture: {fileID: 2800000, guid: ac83bde2b3c523e46afe00a61df80c20, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -82,7 +82,7 @@ Material:
         first:
           name: _Ramp
         second:
-          m_Texture: {fileID: 2800000, guid: 4a056241e2722dc46a7262a8e7073fd9, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -142,4 +142,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .303343803, g: .382352948, b: .272707611, a: 1}
+        second: {r: .632352948, g: .632352948, b: .632352948, a: 1}

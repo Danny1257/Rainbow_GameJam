@@ -69,13 +69,13 @@ public class Wizard_Teleport : MonoBehaviour
 			if (player_movement.FacingRight)
 			{
 				velocity = new Vector3(dashDistance, 0, 0);
-				Camera.main.transform.position = new Vector3(Camera.main.transform.position.x + dashDistance, Camera.main.transform.position.y, Camera.main.transform.position.z);
+				//Camera.main.transform.position = new Vector3(Camera.main.transform.position.x + dashDistance, Camera.main.transform.position.y, Camera.main.transform.position.z);
 				transform.Translate(velocity);
 			}
 			else
 			{
 				velocity = new Vector3(-dashDistance, 0, 0);
-				Camera.main.transform.position = new Vector3(Camera.main.transform.position.x - dashDistance, Camera.main.transform.position.y, Camera.main.transform.position.z);
+				//Camera.main.transform.position = new Vector3(Camera.main.transform.position.x - dashDistance, Camera.main.transform.position.y, Camera.main.transform.position.z);
 				transform.Translate(velocity);
 			}
 		}
