@@ -3272,6 +3272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1763456316}
+  speed: 4
 --- !u!82 &620285906
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6421,7 +6422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AimObject: {fileID: 0}
-  Bomb: {fileID: 171914, guid: cb773b9622752164984a8275e676bee3, type: 2}
+  Bomb: {fileID: 120938, guid: 1cb3b3fc7a035462e98fa5802b8c3f30, type: 2}
   EmptyBar: {fileID: 2129454490}
   PowerBar: {fileID: 1318930687}
   MaxForce: 500
