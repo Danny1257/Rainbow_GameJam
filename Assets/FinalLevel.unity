@@ -145,6 +145,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!1001 &424580333
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1637847540}
+    m_Modifications:
+    - target: {fileID: 473370, guid: 02271a76610b12241915c9dbdf75353e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 52.0993652
+      objectReference: {fileID: 0}
+    - target: {fileID: 473370, guid: 02271a76610b12241915c9dbdf75353e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -14.7975645
+      objectReference: {fileID: 0}
+    - target: {fileID: 473370, guid: 02271a76610b12241915c9dbdf75353e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 4.83233976
+      objectReference: {fileID: 0}
+    - target: {fileID: 473370, guid: 02271a76610b12241915c9dbdf75353e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 473370, guid: 02271a76610b12241915c9dbdf75353e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 473370, guid: 02271a76610b12241915c9dbdf75353e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 473370, guid: 02271a76610b12241915c9dbdf75353e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 473370, guid: 02271a76610b12241915c9dbdf75353e, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 02271a76610b12241915c9dbdf75353e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &589913491
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +219,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 100, y: -100}
+  m_AnchoredPosition: {x: 100, y: -120}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &589913493
@@ -215,7 +257,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 00ee2b23824de5a40b52ebda90fa8841, type: 3}
-    m_FontSize: 48
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -225,11 +267,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "It is estimated that in the United Kingdom alone, around 1 in \n20 people
-    suffer from some form of Dissociative identity \ndisorder (split personalities)...Jimmy
+  m_Text: "It is estimated that in the United Kingdom alone, around 1 in 20 people\nsuffer
+    from some form of Dissociative identity disorder (split \npersonalities)... Jimmy
     is one of those people.\n\nWith many of us setting out to create an image of ourselves
-    \nothers are struggling to figure out their true identity. We \nmade this game
-    in the hope of raising awareness for those who suffer from this mental disease."
+    others are \nstruggling to figure out their true identity. We made this game in
+    the hope \nof raising awareness for those who suffer from this mental disease."
 --- !u!222 &589913495
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -363,7 +405,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 856d0b57ac0500142acd5ad5f3922a18, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -552,7 +594,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1680136320}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!82 &1637847541
@@ -625,3 +668,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!4 &1680136320 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 473370, guid: 02271a76610b12241915c9dbdf75353e, type: 2}
+  m_PrefabInternal: {fileID: 424580333}
