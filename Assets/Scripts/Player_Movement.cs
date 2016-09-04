@@ -154,8 +154,7 @@ public class Player_Movement : MonoBehaviour
 
 		if (!MovingLeft && ! MovingRight)
 		{
-			player_Animator.SetTrigger("IdleJump");
-			player_Animator.ResetTrigger("MovingJump");
+			player_Animator.SetTrigger("MovingJump");
 		}
 		else
 		{
