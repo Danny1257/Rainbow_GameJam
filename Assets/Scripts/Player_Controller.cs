@@ -156,6 +156,7 @@ public class Player_Controller : MonoBehaviour
 
 	private void CheckForPersonalityChange()
 	{
+		/*
 		if (Input.GetAxis("Mouse ScrollWheel") > 0)
 		{
 			if (CurrentStatus == CharacterStatus.Wizard)
@@ -211,8 +212,9 @@ public class Player_Controller : MonoBehaviour
 
 			CharacterTransformSystem.Play();
 			characterSwap.PersonalityChange();
-		}
-		else if (Input.GetKeyDown(KeyCode.W))
+		}*/
+
+		if (Input.GetKeyDown(KeyCode.W))
 		{
 			if (CurrentStatus == CharacterStatus.Wizard)
 			{

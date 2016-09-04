@@ -20,8 +20,7 @@ public class Camera_Controller : MonoBehaviour
 	{
 		if (player != null)
 		{
-            
-            
+                   
 			
             
 
