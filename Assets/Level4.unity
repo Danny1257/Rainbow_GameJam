@@ -729,6 +729,10 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 122607228}
   m_Mesh: {fileID: 4300000, guid: 7e8d9e50949d3a941ad8ee08a69f6d5f, type: 3}
+--- !u!4 &133822822 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 471692, guid: e589ac938b0fb884b8ec239479833afd, type: 2}
+  m_PrefabInternal: {fileID: 874545344}
 --- !u!1001 &150797688
 Prefab:
   m_ObjectHideFlags: 0
@@ -2631,7 +2635,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.57000017, y: 2.23000002, z: 2.5999999}
+  m_Size: {x: 13.8400002, y: 4.09000015, z: 2.5999999}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &503740074
 Transform:
@@ -2640,7 +2644,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 503740071}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 145.320007, y: 31.1000004, z: 0}
+  m_LocalPosition: {x: 149.770004, y: 24.8099995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2766,10 +2770,10 @@ Transform:
   - {fileID: 2139285548}
   - {fileID: 996244948}
   - {fileID: 84968580}
-  - {fileID: 1297836076}
-  - {fileID: 1679922881}
   - {fileID: 776349164}
   - {fileID: 975831707}
+  - {fileID: 1297836076}
+  - {fileID: 1679922881}
   m_Father: {fileID: 0}
   m_RootOrder: 16
 --- !u!1 &617580055
@@ -3281,7 +3285,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 454622, guid: a4fd0dcc09611b549a7177b7a7e9432d, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -32.4199982
+      value: -11.5699997
       objectReference: {fileID: 0}
     - target: {fileID: 454622, guid: a4fd0dcc09611b549a7177b7a7e9432d, type: 2}
       propertyPath: m_LocalRotation.x
@@ -3301,7 +3305,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 454622, guid: a4fd0dcc09611b549a7177b7a7e9432d, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 454622, guid: a4fd0dcc09611b549a7177b7a7e9432d, type: 2}
       propertyPath: m_LocalScale.x
@@ -3452,6 +3456,57 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 864447523}
   m_Mesh: {fileID: 4300000, guid: 7e8d9e50949d3a941ad8ee08a69f6d5f, type: 3}
+--- !u!1001 &874545344
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1632098861}
+    m_Modifications:
+    - target: {fileID: 471692, guid: e589ac938b0fb884b8ec239479833afd, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 111.980003
+      objectReference: {fileID: 0}
+    - target: {fileID: 471692, guid: e589ac938b0fb884b8ec239479833afd, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.80161476
+      objectReference: {fileID: 0}
+    - target: {fileID: 471692, guid: e589ac938b0fb884b8ec239479833afd, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -18.6200008
+      objectReference: {fileID: 0}
+    - target: {fileID: 471692, guid: e589ac938b0fb884b8ec239479833afd, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 471692, guid: e589ac938b0fb884b8ec239479833afd, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 471692, guid: e589ac938b0fb884b8ec239479833afd, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 471692, guid: e589ac938b0fb884b8ec239479833afd, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 471692, guid: e589ac938b0fb884b8ec239479833afd, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 100162, guid: e589ac938b0fb884b8ec239479833afd, type: 2}
+      propertyPath: m_Name
+      value: SpacePlat (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6556798, guid: e589ac938b0fb884b8ec239479833afd, type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 09c44d0923830504eb9a8121100270eb,
+        type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e589ac938b0fb884b8ec239479833afd, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &875799097
 Prefab:
   m_ObjectHideFlags: 0
@@ -3607,7 +3662,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 454622, guid: a4fd0dcc09611b549a7177b7a7e9432d, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -34.2268066
+      value: -15.5
       objectReference: {fileID: 0}
     - target: {fileID: 454622, guid: a4fd0dcc09611b549a7177b7a7e9432d, type: 2}
       propertyPath: m_LocalRotation.x
@@ -3627,7 +3682,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 454622, guid: a4fd0dcc09611b549a7177b7a7e9432d, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 454622, guid: a4fd0dcc09611b549a7177b7a7e9432d, type: 2}
       propertyPath: m_LocalScale.x
@@ -3794,8 +3849,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.73999977, y: 4.30999994, z: 4.78000021}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3.41000009, y: 17.5100002, z: 4.78000021}
+  m_Center: {x: .829999983, y: 0, z: 0}
 --- !u!4 &1009417906
 Transform:
   m_ObjectHideFlags: 0
@@ -3803,8 +3858,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1009417904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 149.580002, y: 32.2999992, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 156.199997, y: 31.7700005, z: 0}
+  m_LocalScale: {x: 4.07000017, y: 1.82000005, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 26
@@ -5745,6 +5800,7 @@ Transform:
   - {fileID: 1647006420}
   - {fileID: 1067610847}
   - {fileID: 847154280}
+  - {fileID: 133822822}
   m_Father: {fileID: 0}
   m_RootOrder: 18
 --- !u!4 &1647006420 stripped
