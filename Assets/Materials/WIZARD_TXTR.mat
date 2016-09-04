@@ -136,10 +136,6 @@ Material:
         second: 0
       data:
         first:
-          name: _Outline
-        second: .00590000022
-      data:
-        first:
           name: _GlossMapScale
         second: 1
       data:
@@ -154,6 +150,10 @@ Material:
         first:
           name: _SpecularHighlights
         second: 1
+      data:
+        first:
+          name: _Outline
+        second: .00590000022
     m_Colors:
       data:
         first:
@@ -162,7 +162,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .691176474, g: .543793261, b: .543793261, a: 1}
+        second: {r: .465517223, g: .26698783, b: .26698783, a: 1}
       data:
         first:
           name: _OutlineColor
