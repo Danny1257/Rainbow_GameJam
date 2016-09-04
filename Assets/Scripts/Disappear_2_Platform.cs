@@ -8,6 +8,7 @@ public class Disappear_2_Platform : MonoBehaviour
 	private BoxCollider MainCollider;
 	private BoxCollider GroundedCollider;
 
+
 	private float timer = 8.0f;
 	// Use this for initialization
 	void Start () 
@@ -41,5 +42,10 @@ public class Disappear_2_Platform : MonoBehaviour
 
 		if (timer <= 0)
 			timer = 8;
+	}
+
+	public bool GetPlatformState()
+	{
+		return MainCollider.enabled;
 	}
 }
