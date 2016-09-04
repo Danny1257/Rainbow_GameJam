@@ -191,7 +191,7 @@ public class Player_Movement : MonoBehaviour
 		{
 			if (collider.transform.parent.parent.GetComponent<Disappear_Platform>() == null)
 			{
-				Debug.Log("Grounded on platform");
+				//Debug.Log("Grounded on platform");
 				Grounded = true;
 			}
 		}
