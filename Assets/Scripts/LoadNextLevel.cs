@@ -26,13 +26,13 @@ public class LoadNextLevel : MonoBehaviour
 			if (playerController.GetNumOfPickups() == 3)
 			{
 				if (Application.loadedLevelName == "Scene")
-					Application.LoadLevel(1);
-				else if (Application.loadedLevelName == "Level2")
 					Application.LoadLevel(2);
-				else if (Application.loadedLevelName == "Level3")
+				else if (Application.loadedLevelName == "Level2")
 					Application.LoadLevel(3);
-				else if (Application.loadedLevelName == "Level4")
+				else if (Application.loadedLevelName == "Level3")
 					Application.LoadLevel(4);
+				else if (Application.loadedLevelName == "Level4")
+					Application.LoadLevel(5);
 			}
 		}
 	}
